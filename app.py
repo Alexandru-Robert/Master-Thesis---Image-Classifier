@@ -50,7 +50,7 @@ if uploaded_file is not None:
 
     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
     shoes_model = load_model('Shoes_keras_model.h5')
-    prediction = model.predict(image)
+    prediction = shoes_model.predict(image)
     print(prediction)
     st.write(label)
     if label == 0:
