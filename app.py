@@ -67,7 +67,7 @@ if uploaded_file is not None:
     normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
     # Load the image into the array
     data[0] = normalized_image_array
-    prediction = shoes_model.predict(data)
+    prediction = shoes_model.predict(data)*100
     st.write(prediction)
 
 
