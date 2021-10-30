@@ -67,4 +67,44 @@ if uploaded_file is not None:
     else:
         st.write("Terrex Free Hiker Prime Blue")
 
+    label = teachable_machine_classification(image, 'Pants_keras_model.h5')
+    if label == 0:
+        st.write("4KRFT")
+    elif label == 1:
+        st.write("Aerostripes 3 slim")
+    elif label == 2:
+        st.write("FiveTenFeelsBlockBusker")
+    elif label == 3:
+        st.write("TerrexHikeBusker")
+    elif label == 4:
+        st.write("LiteflexHikingBusker")
+    elif label == 5:
+        st.write("ZupahikeHikingBusker")
+    elif label == 6:
+        st.write("Ultimate 365 Tapered Bukser")
+    else:
+        st.write("Utimate365 Core Shorts")
 
+    label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
+    if label == 0:
+        st.write("SportsWearLogo")
+    elif label == 1:
+        st.write("EssentialsEmbroidedLinearLogo")
+    elif label == 2:
+        st.write("OwnTheRun")
+    elif label == 3:
+        st.write("Runner")
+    elif label == 4:
+        st.write("BSC 3Stripes Insulated Jacket")
+    elif label == 5:
+        st.write("MyShelter RegnJakke")
+    elif label == 6:
+        st.write("Terrex Multi Prime Green Full Zip Fleece Jakke")
+    elif label == 7:
+        st.write("Adicross Evolution")
+    elif label == 8:
+        st.write("GoToPolo")
+    elif label == 9:
+        st.write("GoToPrimeGreenPique")
+    else:
+        st.write("PerformancePrimeGreen")
