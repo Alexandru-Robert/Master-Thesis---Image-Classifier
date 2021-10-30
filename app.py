@@ -45,14 +45,26 @@ if uploaded_file is not None:
     st.write("Classifying...")
     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
     if label == 0:
-        st.write("Superstar")
+        st.write("RunFalcon 2.0")
     elif label == 1:
-        st.write("Football FTW Men")
+        st.write("Supernova")
     elif label == 2:
-        st.write("Yeezy")
+        st.write("Ultraboozt 5.0 DNA")
     elif label == 3:
-        st.write("Dr. Martens")
+        st.write("Ultraboost 21")
+    elif label == 4:
+        st.write("X9000 L3")
+    elif label == 5:
+        st.write("ZG21")
+    elif label == 6:
+        st.write("Adicross Retro")
+    elif label == 7:
+        st.write("Adic XZ Prime Blue")
+    elif label == 8:
+        st.write("Terrex Swift")
+    elif label == 9:
+        st.write("Terrex Voyajer 21 Travel")
     else:
-        st.write("New Balance")
+        st.write("Terrex Free Hiker Prime Blue")
 
 
