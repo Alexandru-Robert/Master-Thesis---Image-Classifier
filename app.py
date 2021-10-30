@@ -38,6 +38,7 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 #      st.write("filename:", uploaded_file.name)
 #      st.write(bytes_data)
 
+#need to see how to do if single product image is uploaded. Now it classifies for all classes
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
@@ -47,6 +48,9 @@ if uploaded_file is not None:
 
 
     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+    shoes_model = load_model('Shoes_keras_model.h5')
+    prediction = model.predict(image)
+    print(prediction)
     st.write(label)
     if label == 0:
         st.write("RunFalcon 2.0")
