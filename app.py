@@ -43,7 +43,7 @@ if uploaded_file is not None:
     st.image(image, caption='Uploaded Product image.', use_column_width=True)
     st.write("")
     st.write("Classifying...")
-    label = teachable_machine_classification(image, '/Users/alexandru-robertcroitoru/VSCode/MasterThesis/Master-Thesis---Image-Classifier/FinalModels/Shoes/keras_model.h5')
+    label = teachable_machine_classification(image, 'Shoes/keras_model.h5')
     if label == 0:
         st.write("Superstar")
     elif label == 1:
