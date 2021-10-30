@@ -60,6 +60,8 @@ image_array = np.asarray(image)
 normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
 # Load the image into the array
 data[0] = normalized_image_array
+prediction = shoes_model.predict(data)
+print(prediction)
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
@@ -69,8 +71,7 @@ if uploaded_file is not None:
 
 
     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
-    prediction = shoes_model.predict(image)
-    print(prediction)
+
     st.write(label)
     if label == 0:
         st.write("RunFalcon 2.0")
