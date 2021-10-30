@@ -42,13 +42,7 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 
 #need to see how to do if single product image is uploaded. Now it classifies for all classes
 
-if uploaded_file is not None:
-    image = Image.open(uploaded_file)
-    st.image(image, caption='Uploaded Product image.', use_column_width=True)
-    st.write("")
-    st.write("Classifying...")
-
-
+def shoes_accuracy():
     shoes_model = load_model('Shoes_keras_model.h5')
     # Create the array of the right shape to feed into the keras model
     # The 'length' or number of images you can put into the array is
@@ -71,7 +65,58 @@ if uploaded_file is not None:
     st.write(prediction)
 
 
+def pants_accuracy():
+    shoes_model = load_model('Pants_keras_model.h5')
+    # Create the array of the right shape to feed into the keras model
+    # The 'length' or number of images you can put into the array is
+    # determined by the first position in the shape tuple, in this case 1.
+    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+    # Replace this with the path to your image
+    image = Image.open(uploaded_file)
+    #resize the image to a 224x224 with the same strategy as in TM2:
+    #resizing the image to be at least 224x224 and then cropping from the center
+    size = (224, 224)
+    image = ImageOps.fit(image, size, Image.ANTIALIAS)
 
+    #turn the image into a numpy array
+    image_array = np.asarray(image)
+    # Normalize the image
+    normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
+    # Load the image into the array
+    data[0] = normalized_image_array
+    prediction = shoes_model.predict(data)*100
+    st.write(prediction)
+
+
+def shirts_accuracy():
+    shoes_model = load_model('Shirts_keras_model.h5')
+    # Create the array of the right shape to feed into the keras model
+    # The 'length' or number of images you can put into the array is
+    # determined by the first position in the shape tuple, in this case 1.
+    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+    # Replace this with the path to your image
+    image = Image.open(uploaded_file)
+    #resize the image to a 224x224 with the same strategy as in TM2:
+    #resizing the image to be at least 224x224 and then cropping from the center
+    size = (224, 224)
+    image = ImageOps.fit(image, size, Image.ANTIALIAS)
+
+    #turn the image into a numpy array
+    image_array = np.asarray(image)
+    # Normalize the image
+    normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
+    # Load the image into the array
+    data[0] = normalized_image_array
+    prediction = shoes_model.predict(data)*100
+    st.write(prediction)
+
+
+if uploaded_file is not None:
+    image = Image.open(uploaded_file)
+    st.image(image, caption='Uploaded Product image.', use_column_width=True)
+    st.write("")
+    st.write("Classifying...")
+    shoes_accuracy()
     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
     st.write(label)
     if label == 0:
@@ -97,6 +142,7 @@ if uploaded_file is not None:
     else:
         st.write("Terrex Free Hiker Prime Blue")
 
+    pants_accuracy()
     label = teachable_machine_classification(image, 'Pants_keras_model.h5')
     st.write(label)
     if label == 0:
@@ -116,6 +162,7 @@ if uploaded_file is not None:
     else:
         st.write("Utimate365 Core Shorts")
 
+    shirts_accuracy()
     label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
     st.write(label)
     if label == 0:
