@@ -38,12 +38,17 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 #      st.write("filename:", uploaded_file.name)
 #      st.write(bytes_data)
 
+def
+
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Product image.', use_column_width=True)
     st.write("")
     st.write("Classifying...")
+
+
     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+    st.write(label)
     if label == 0:
         st.write("RunFalcon 2.0")
     elif label == 1:
@@ -68,6 +73,7 @@ if uploaded_file is not None:
         st.write("Terrex Free Hiker Prime Blue")
 
     label = teachable_machine_classification(image, 'Pants_keras_model.h5')
+    st.write(label)
     if label == 0:
         st.write("4KRFT")
     elif label == 1:
@@ -86,6 +92,7 @@ if uploaded_file is not None:
         st.write("Utimate365 Core Shorts")
 
     label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
+    st.write(label)
     if label == 0:
         st.write("SportsWearLogo")
     elif label == 1:
