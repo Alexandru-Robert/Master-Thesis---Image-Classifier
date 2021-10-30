@@ -38,7 +38,6 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 #      st.write("filename:", uploaded_file.name)
 #      st.write(bytes_data)
 
-def
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
