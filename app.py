@@ -6,7 +6,7 @@ from img_classification import teachable_machine_classification
 from explore_page import show_explore_page
 import numpy as np
 
-st.set_page_config(page_title="MasterThesis", page_icon=None, initial_sidebar_state='auto')
+st.set_page_config(page_title="MasterThesis", page_icon=None,layout='centered', initial_sidebar_state='auto')
 # favicon being an object of the same kind as the one you should provide st.image() with (ie. a PIL array for example) or a string (url or local file path)
 
 hide_st_style = """
@@ -61,7 +61,7 @@ def shoes_accuracy():
     normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
     # Load the image into the array
     data[0] = normalized_image_array
-    prediction = shoes_model.predict(data)*100
+    prediction = shoes_model.predict(data)
     st.write(prediction)
 
 
@@ -84,7 +84,7 @@ def pants_accuracy():
     normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
     # Load the image into the array
     data[0] = normalized_image_array
-    prediction = shoes_model.predict(data)*100
+    prediction = shoes_model.predict(data)
     st.write(prediction)
 
 
@@ -107,7 +107,7 @@ def shirts_accuracy():
     normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
     # Load the image into the array
     data[0] = normalized_image_array
-    prediction = shoes_model.predict(data)*100
+    prediction = shoes_model.predict(data)
     st.write(prediction)
 
 
