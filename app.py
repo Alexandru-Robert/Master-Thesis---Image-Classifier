@@ -206,3 +206,18 @@ with st.container():
          st.write('You selected comedy.')
     else:
         st.write("You didn't select comedy.")
+
+    col1, col2, col3 = st.columns(3)
+     with col1:
+       st.header("A cat")
+
+     with col2:
+        st.header("A dog")
+
+     with col3:
+        st.header("An owl")
+
+add_selectbox = st.sidebar.selectbox(
+    "How would you like to be contacted?",
+    ("Email", "Home phone", "Mobile phone")
+)
