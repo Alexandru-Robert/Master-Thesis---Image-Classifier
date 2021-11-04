@@ -204,11 +204,11 @@ with st.container():
 
     col1, col2, col3 = st.columns(3)
     with col1:
-       st.header("A cat")
+        st.header("A cat")
         options = st.multiselect(
-         'What are your favorite colors',
-         ['Green', 'Yellow', 'Red', 'Blue'],
-         ['Yellow', 'Red'])
+        'What are your favorite colors',
+        ['Green', 'Yellow', 'Red', 'Blue'],
+        ['Yellow', 'Red'])
         st.write('You selected:', options)
     with col2:
         st.header("A dog")
