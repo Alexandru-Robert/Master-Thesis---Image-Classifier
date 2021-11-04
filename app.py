@@ -6,7 +6,7 @@ from img_classification import teachable_machine_classification
 from explore_page import show_explore_page
 import numpy as np
 #import cloudinary
-import cloudinary.uploader
+#import cloudinary.uploader
 import cloudinary.api
 
 st.set_page_config(page_title="MasterThesis", page_icon=None,layout='centered', initial_sidebar_state='auto')
