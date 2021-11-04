@@ -232,7 +232,7 @@ with st.container():
         ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'])
 
 def upload(file, **options):
-
+    st.write('')
 
 if st.button('SUBMIT'):
     st.write('The image is being uploaded to the cloud wth the corrected classification')
