@@ -50,7 +50,7 @@ add_selectbox = st.sidebar.selectbox(
     ("Single Product", "Multiple product")
 )
 
-CLOUDINARY_URL = cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
+#CLOUDINARY_URL = cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
 
 cloudinary.config( 
   cloud_name = "stibodata", 
