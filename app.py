@@ -121,9 +121,9 @@ if uploaded_file is not None:
     st.image(image, caption='Uploaded Product image.', use_column_width=True)
     st.write("")
     st.write("Classifying...")
-    shoes_accuracy()
+    #shoes_accuracy()
     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
-    st.write(label)
+    #st.write(label)
     if label == 0:
         st.write("RunFalcon 2.0")
     elif label == 1:
@@ -147,9 +147,9 @@ if uploaded_file is not None:
     else:
         st.write("Terrex Free Hiker Prime Blue")
 
-    pants_accuracy()
+    #pants_accuracy()
     label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
-    st.write(label)
+    #st.write(label)
     if label == 0:
         st.write("4KRFT")
     elif label == 1:
@@ -167,9 +167,9 @@ if uploaded_file is not None:
     else:
         st.write("Utimate365 Core Shorts")
 
-    shirts_accuracy()
+    #shirts_accuracy()
     label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
-    st.write(label)
+    #st.write(label)
     if label == 0:
         st.write("SportsWearLogo")
     elif label == 1:
