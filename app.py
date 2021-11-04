@@ -187,3 +187,7 @@ if uploaded_file is not None:
         st.write("GoToPrimeGreenPique")
     else:
         st.write("PerformancePrimeGreen")
+
+
+option = st.selectbox('The correct classes: ',('shoes','pants','shirts'))
+st.write('you selected', option)
