@@ -66,7 +66,7 @@ def shoes_accuracy():
 
 
 def pants_accuracy():
-    shoes_model = load_model('Pants_keras_model.h5')
+    shoes_model = load_model('keras_modelPantsv2.h5')
     # Create the array of the right shape to feed into the keras model
     # The 'length' or number of images you can put into the array is
     # determined by the first position in the shape tuple, in this case 1.
@@ -143,7 +143,7 @@ if uploaded_file is not None:
         st.write("Terrex Free Hiker Prime Blue")
 
     pants_accuracy()
-    label = teachable_machine_classification(image, 'Pants_keras_model.h5')
+    label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
     st.write(label)
     if label == 0:
         st.write("4KRFT")
