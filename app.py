@@ -191,3 +191,11 @@ if uploaded_file is not None:
 
 option = st.selectbox('The correct classes: ',('shoes','pants','shirts'))
 st.write('you selected', option)
+
+genre = st.radio(
+    "What's your favorite movie genre",
+    ('Comedy', 'Drama', 'Documentary'))
+if genre == 'Comedy':
+     st.write('You selected comedy.')
+else:
+    st.write("You didn't select comedy.")
