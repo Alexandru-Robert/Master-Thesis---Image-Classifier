@@ -193,8 +193,14 @@ if uploaded_file is not None:
     else:
         st.write("PerformancePrimeGreen")
 
-with st.container():
 
+if st.button('Say hello'):
+    st.write('Why hello there')
+else:
+    st.write('Goodbye')
+
+
+with st.container():
     col1, col2, col3 = st.columns(3)
     with col1:
         st.header("Shoes")
