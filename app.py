@@ -50,13 +50,21 @@ add_selectbox = st.sidebar.selectbox(
     ("Single Product", "Multiple product")
 )
 
-CLOUDINARY_URL=cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
+CLOUDINARY_URL = cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
+
 cloudinary.config( 
   cloud_name = "stibodata", 
   api_key = "461531742435772", 
   api_secret = "shF0nm0r22IFe3wFXAKynxIr82s",
   secure = true
 )
+
+# cloudinary.uploader.upload("dog.mp4", 
+#   folder = "myfolder/mysubfolder/", 
+#   public_id = "my_dog",
+#   overwrite = true, 
+#   notification_url = "https://mysite.example.com/notify_endpoint", 
+#   resource_type = "video")
 
 def shoes_accuracy():
     shoes_model = load_model('Shoes_keras_model.h5')
