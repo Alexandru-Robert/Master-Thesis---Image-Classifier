@@ -5,6 +5,9 @@ from PIL import Image, ImageOps
 from img_classification import teachable_machine_classification
 from explore_page import show_explore_page
 import numpy as np
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 st.set_page_config(page_title="MasterThesis", page_icon=None,layout='centered', initial_sidebar_state='auto')
 # favicon being an object of the same kind as the one you should provide st.image() with (ie. a PIL array for example) or a string (url or local file path)
@@ -45,6 +48,14 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 add_selectbox = st.sidebar.selectbox(
     "What type of pictures are there going to be added? Single product or multiple product?",
     ("Single Product", "Multiple product")
+)
+
+CLOUDINARY_URL=cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
+cloudinary.config( 
+  cloud_name = "stibodata", 
+  api_key = "461531742435772", 
+  api_secret = "shF0nm0r22IFe3wFXAKynxIr82s",
+  secure = true
 )
 
 def shoes_accuracy():
@@ -193,13 +204,6 @@ if uploaded_file is not None:
     else:
         st.write("PerformancePrimeGreen")
 
-
-if st.button('Say hello'):
-    st.write('Why hello there')
-else:
-    st.write('Goodbye')
-
-
 with st.container():
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -219,3 +223,10 @@ with st.container():
         'What Shirt model is in the picture?',
         ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'])
 
+def upload(file, **options)
+
+if st.button('SUBMIT'):
+    st.write('The image is being uploaded to the cloud wth the corrected classification')
+    cloudinary.uploader.upload(image)
+else:
+    #st.write('Goodbye')
