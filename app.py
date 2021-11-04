@@ -5,7 +5,7 @@ from PIL import Image, ImageOps
 from img_classification import teachable_machine_classification
 from explore_page import show_explore_page
 import numpy as np
-import cloudinary
+#import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
