@@ -188,21 +188,21 @@ if uploaded_file is not None:
     else:
         st.write("PerformancePrimeGreen")
 
+with st.container():
+    option = st.selectbox('The correct classes: ',('shoes','pants','shirts'))
+    st.write('you selected', option)
 
-option = st.selectbox('The correct classes: ',('shoes','pants','shirts'))
-st.write('you selected', option)
+    options = st.multiselect(
+         'What are your favorite colors',
+         ['Green', 'Yellow', 'Red', 'Blue'],
+         ['Yellow', 'Red'])
 
-options = st.multiselect(
-     'What are your favorite colors',
-     ['Green', 'Yellow', 'Red', 'Blue'],
-     ['Yellow', 'Red'])
+    st.write('You selected:', options)
 
-st.write('You selected:', options)
-
-genre = st.radio(
-    "What's your favorite movie genre",
-    ('Comedy', 'Drama', 'Documentary'))
-if genre == 'Comedy':
-     st.write('You selected comedy.')
-else:
-    st.write("You didn't select comedy.")
+    genre = st.radio(
+        "What's your favorite movie genre",
+        ('Comedy', 'Drama', 'Documentary'))
+    if genre == 'Comedy':
+         st.write('You selected comedy.')
+    else:
+        st.write("You didn't select comedy.")
