@@ -4,4 +4,4 @@ pandas
 streamlit
 pillow
 keras
-tensorflow==2.6.0
+tensorflow==2.6.1
