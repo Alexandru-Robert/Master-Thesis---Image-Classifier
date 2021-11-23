@@ -56,8 +56,7 @@ if smsb == "Single Product":
     csb= st.sidebar.selectbox(
     "What category does the product belong to?",
     ("Shoes", "Pants/Shorts", "Shirts"))
-else:
-    checker = "category_select-box"  
+
 
 #CLOUDINARY_URL = cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
 
