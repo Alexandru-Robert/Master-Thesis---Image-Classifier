@@ -50,7 +50,7 @@ add_selectbox = st.sidebar.selectbox(
     ("Single Product", "Multiple product")
 )
 
-st.write('you selected', option)
+st.write('you selected', add_selectbox)
 
 
 #CLOUDINARY_URL = cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
