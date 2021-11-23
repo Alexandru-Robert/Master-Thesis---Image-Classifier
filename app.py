@@ -217,7 +217,7 @@ with st.container():
     with col1:
         st.header("Shoes")
         options = st.multiselect(
-        'What shoe model is in the picture?',
+        'What shoes model is in the picture?',
         ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'])
         #st.write('You selected:', options)
     with col2:
