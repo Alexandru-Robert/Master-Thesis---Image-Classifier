@@ -137,7 +137,7 @@ def shirts_accuracy():
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, width=150,caption='Uploaded Product image.')
+    st.image(image, width=200 ,caption='Uploaded Product image.',)
     st.write("")
     st.write("Classifying...")
     shoes_accuracy()
