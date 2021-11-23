@@ -146,38 +146,46 @@ if smsb == "Single Product":
     "What category does the product belong to?",
     ("Shoes", "Pants/Shorts", "Shirts"))
     if csb == "Shoes":
-        #SHOES
-        with st.container():
-            col1, col2, col3 = st.columns(3)
-            #OUTPUT LABEL OF SHOES
-            with col1:
-                label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
-                #st.write(label)
-                if label == 0:
-                    st.write("RunFalcon 2.0")
-                elif label == 1:
-                    st.write("Supernova")
-                elif label == 2:
-                    st.write("Ultraboozt 5.0 DNA")
-                elif label == 3:
-                    st.write("Ultraboost 21")
-                elif label == 4:
-                    st.write("X9000 L3")
-                elif label == 5:
-                    st.write("ZG21")
-                elif label == 6:
-                    st.write("Adicross Retro")
-                elif label == 7:
-                    st.write("Adic XZ Prime Blue")
-                elif label == 8:
-                    st.write("Terrex Swift")
-                elif label == 9:
-                    st.write("Terrex Voyajer 21 Travel")
-                else:
-                    st.write("Terrex Free Hiker Prime Blue")
-            #CONFIDENCE LEVEL OF SHOES
-            with col2:
-                shoes_accuracy()    
+        if uploaded_file is not None:
+            with st.container():
+                col1, col2, col3 = st.columns(3)
+                with col2:
+                    image = Image.open(uploaded_file)
+                    st.image(image, width=200 ,caption='Uploaded Product image.')            
+            st.write("")
+            st.write("Classifying...")
+            #SHOES
+            with st.container():
+                col1, col2, col3 = st.columns(3)
+                #OUTPUT LABEL OF SHOES
+                with col1:
+                    label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+                    #st.write(label)
+                    if label == 0:
+                        st.write("RunFalcon 2.0")
+                    elif label == 1:
+                        st.write("Supernova")
+                    elif label == 2:
+                        st.write("Ultraboozt 5.0 DNA")
+                    elif label == 3:
+                        st.write("Ultraboost 21")
+                    elif label == 4:
+                        st.write("X9000 L3")
+                    elif label == 5:
+                        st.write("ZG21")
+                    elif label == 6:
+                        st.write("Adicross Retro")
+                    elif label == 7:
+                        st.write("Adic XZ Prime Blue")
+                    elif label == 8:
+                        st.write("Terrex Swift")
+                    elif label == 9:
+                        st.write("Terrex Voyajer 21 Travel")
+                    else:
+                        st.write("Terrex Free Hiker Prime Blue")
+                #CONFIDENCE LEVEL OF SHOES
+                with col2:
+                    shoes_accuracy()    
 
 else:
     if uploaded_file is not None:
