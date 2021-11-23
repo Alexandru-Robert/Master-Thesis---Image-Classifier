@@ -49,16 +49,16 @@ single_multi_select-box = st.sidebar.selectbox(
     "What type of pictures are there going to be added? Single product or multiple product?",
     ("Single Product", "Multiple product")
 )
+
 category_select-box= st.sidebar.selectbox(
     "What category does the product belong to?",
     ("Shoes", "Pants/Shorts", "Shirts")
 )
 
 if add_selectbox == "Single Product":
-     
-    #cloudinary.uploader.upload(image)
+    checker = single_multi_select
 else:
-    #st.write('Goodbye')   
+    checker = category_select-box  
 
 #CLOUDINARY_URL = cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
 
