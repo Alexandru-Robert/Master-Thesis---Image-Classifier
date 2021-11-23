@@ -149,32 +149,37 @@ if uploaded_file is not None:
             
     st.write("")
     st.write("Classifying...")
+
+    with st.container():
+        col1, col2, col3 = st.columns(3)
+    with col1:
+        label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+        #st.write(label)
+        if label == 0:
+            st.write("RunFalcon 2.0")
+        elif label == 1:
+            st.write("Supernova")
+        elif label == 2:
+            st.write("Ultraboozt 5.0 DNA")
+        elif label == 3:
+            st.write("Ultraboost 21")
+        elif label == 4:
+            st.write("X9000 L3")
+        elif label == 5:
+            st.write("ZG21")
+        elif label == 6:
+            st.write("Adicross Retro")
+        elif label == 7:
+            st.write("Adic XZ Prime Blue")
+        elif label == 8:
+            st.write("Terrex Swift")
+        elif label == 9:
+            st.write("Terrex Voyajer 21 Travel")
+        else:
+            st.write("Terrex Free Hiker Prime Blue")
     
-    label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
-    #st.write(label)
-    if label == 0:
-        st.write("RunFalcon 2.0")
-    elif label == 1:
-        st.write("Supernova")
-    elif label == 2:
-        st.write("Ultraboozt 5.0 DNA")
-    elif label == 3:
-        st.write("Ultraboost 21")
-    elif label == 4:
-        st.write("X9000 L3")
-    elif label == 5:
-        st.write("ZG21")
-    elif label == 6:
-        st.write("Adicross Retro")
-    elif label == 7:
-        st.write("Adic XZ Prime Blue")
-    elif label == 8:
-        st.write("Terrex Swift")
-    elif label == 9:
-        st.write("Terrex Voyajer 21 Travel")
-    else:
-        st.write("Terrex Free Hiker Prime Blue")
-    shoes_accuracy()    
+    with col2:
+        shoes_accuracy()    
 
     #pants_accuracy()
     label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
