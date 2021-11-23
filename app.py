@@ -195,7 +195,7 @@ if smsb == "Single Product":
                 options = st.selectbox(
                 'What shoes model is in the picture?',
                 ['Unknown','RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'],
-                index = labelint
+                index = labelint + 1
                 )
                 #st.write('You selected:', options)
     elif csb == "Pants/Shorts":
