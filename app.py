@@ -92,7 +92,7 @@ def shoes_accuracy():
     confidence = np.amax(prediction) 
     st.write(confidence)
     # st.dataframe(prediction.round(2))
-    st.write(prediction)
+    #st.write(prediction)
 
 def pants_accuracy():
     shoes_model = load_model('keras_modelPantsv2.h5')
