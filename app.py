@@ -50,13 +50,12 @@ smsb = st.sidebar.selectbox(
     ("Single Product", "Multiple product")
 )
 
-csb= st.sidebar.selectbox(
-    "What category does the product belong to?",
-    ("Shoes", "Pants/Shorts", "Shirts")
-)
+
 
 if smsb == "Single Product":
-    checker = "single_multi_select"
+    csb= st.sidebar.selectbox(
+    "What category does the product belong to?",
+    ("Shoes", "Pants/Shorts", "Shirts"))
 else:
     checker = "category_select-box"  
 
