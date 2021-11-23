@@ -86,6 +86,7 @@ def shoes_accuracy():
     # Load the image into the array
     data[0] = normalized_image_array
     prediction = shoes_model.predict(data)*100
+    st.dataframe(prediction.style.format("{:.2%}"))
     st.write(prediction)
 
 def pants_accuracy():
