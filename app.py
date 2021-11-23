@@ -113,7 +113,7 @@ def pants_accuracy():
     normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
     # Load the image into the array
     data[0] = normalized_image_array
-    prediction = shoes_model.predict(data)
+    prediction = shoes_model.predict(data)*100
     confidence = np.amax(prediction) 
     st.write(confidence)
     #st.write(prediction)
@@ -137,7 +137,7 @@ def shirts_accuracy():
     normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
     # Load the image into the array
     data[0] = normalized_image_array
-    prediction = shoes_model.predict(data)
+    prediction = shoes_model.predict(data)*100
     confidence = np.amax(prediction) 
     st.write(confidence)
     #st.write(prediction)
