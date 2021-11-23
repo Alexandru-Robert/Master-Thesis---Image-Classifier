@@ -55,7 +55,7 @@ category_select-box= st.sidebar.selectbox(
     ("Shoes", "Pants/Shorts", "Shirts")
 )
 
-if add_selectbox == "Single Product":
+if single_multi_select== "Single Product":
     checker = single_multi_select
 else:
     checker = category_select-box  
