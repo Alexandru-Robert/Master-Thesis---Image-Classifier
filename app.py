@@ -86,7 +86,9 @@ def shoes_accuracy():
     normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
     # Load the image into the array
     data[0] = normalized_image_array
-    prediction = shoes_model.predict(data[label])*100
+    labelshoes = normalized_image_array
+    st.write(labelshoes)
+    prediction = shoes_model.predict(data)*100
     # st.dataframe(prediction.round(2))
     st.write(prediction)
 
