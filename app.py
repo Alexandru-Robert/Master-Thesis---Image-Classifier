@@ -45,13 +45,17 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 
 #need to see how to do if single product image is uploaded. Now it classifies for all classes
 
-add_selectbox = st.sidebar.selectbox(
+single_multi_select-box = st.sidebar.selectbox(
     "What type of pictures are there going to be added? Single product or multiple product?",
     ("Single Product", "Multiple product")
 )
+category_select-box= st.sidebar.selectbox(
+    "What category does the product belong to?",
+    ("Shoes", "Pants/Shorts", "Shirts")
+)
 
-st.write('you selected', add_selectbox)
-
+if add_selectbox == "Single Product":
+    
 
 #CLOUDINARY_URL = cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
 
