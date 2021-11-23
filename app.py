@@ -47,7 +47,7 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 
 smsb = st.sidebar.selectbox(
     "What type of pictures are there going to be added? Single product or multiple product?",
-    ("Single Product", "Multiple product")
+    ("Multiple product","Single Product")
 )
 
 
