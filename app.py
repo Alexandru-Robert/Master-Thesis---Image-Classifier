@@ -72,6 +72,7 @@ def shoes_accuracy():
     # The 'length' or number of images you can put into the array is
     # determined by the first position in the shape tuple, in this case 1.
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+    data.round(2)
     # Replace this with the path to your image
     image = Image.open(uploaded_file)
     #resize the image to a 224x224 with the same strategy as in TM2:
@@ -86,7 +87,7 @@ def shoes_accuracy():
     # Load the image into the array
     data[0] = normalized_image_array
     prediction = shoes_model.predict(data)*100
-    st.dataframe(prediction.round(2))
+    # st.dataframe(prediction.round(2))
     st.write(prediction)
 
 def pants_accuracy():
