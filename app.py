@@ -50,6 +50,9 @@ add_selectbox = st.sidebar.selectbox(
     ("Single Product", "Multiple product")
 )
 
+st.write('you selected', option)
+
+
 #CLOUDINARY_URL = cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
 
 # cloudinary.config( 
@@ -156,6 +159,7 @@ if uploaded_file is not None:
 
     with st.container():
         col1, col2, col3 = st.columns(3)
+    #OUTPUT LABEL OF SHOES
     with col1:
         label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
         #st.write(label)
@@ -181,12 +185,13 @@ if uploaded_file is not None:
             st.write("Terrex Voyajer 21 Travel")
         else:
             st.write("Terrex Free Hiker Prime Blue")
-    
+    #CONFIDENCE LEVEL OF SHOES
     with col2:
         shoes_accuracy()    
 
     with st.container():
         col1, col2, col3 = st.columns(3)
+    #OUTPUT LABEL OF PANTS    
     with col1:
         label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
         #st.write(label)
@@ -206,12 +211,13 @@ if uploaded_file is not None:
             st.write("Ultimate 365 Tapered Bukser")
         else:
             st.write("Utimate365 Core Shorts")
-    
+    #CONFIDENCE LEVEL OF PANTS    
     with col2:
         pants_accuracy()
 
     with st.container():
         col1, col2, col3 = st.columns(3)
+    #OUTPUT LABEL OF SHIRTS
     with col1:
         label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
         #st.write(label)
@@ -237,7 +243,7 @@ if uploaded_file is not None:
             st.write("GoToPrimeGreenPique")
         else:
             st.write("PerformancePrimeGreen")
-
+    #CONFIDENCE LEVEL OF SHIRTS
     with col2:
         shirts_accuracy()
 
