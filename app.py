@@ -410,10 +410,10 @@ else:
 
 def upload(file, **options):
     st.write('')
-    
+
 with st.container():
         col1, col2, col3 = st.columns(3)
-        with col2:
+        with col3:
             if st.button('SUBMIT'):
                 st.write('The image is being uploaded to the cloud wth the corrected classification')
                 #cloudinary.uploader.upload(image)
