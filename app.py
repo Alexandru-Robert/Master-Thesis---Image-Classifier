@@ -138,9 +138,9 @@ if uploaded_file is not None:
     st.image(image, caption='Uploaded Product image.', use_column_width=True)
     st.write("")
     st.write("Classifying...")
-    shoes_accuracy()
+    shoes_accuracy(label)
     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
-    st.write(label)
+    #st.write(label)
     if label == 0:
         st.write("RunFalcon 2.0")
     elif label == 1:
