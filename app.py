@@ -90,7 +90,7 @@ def shoes_accuracy():
     
     prediction = shoes_model.predict(data)*100
     confidence = np.amax(prediction) 
-    st.write(confidence)
+    st.write(confidence,"%")
     # st.dataframe(prediction.round(2))
     #st.write(prediction)
 
