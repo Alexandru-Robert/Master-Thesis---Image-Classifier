@@ -137,10 +137,7 @@ def shirts_accuracy():
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    #resizing the image to be at least 224x224 and then cropping from the center
-    #size = (224, 224)
-    #image = ImageOps.scale(image,0.5)
-    st.image(image, caption='Uploaded Product image.', use_column_width=True)
+    st.image(image, width=150,caption='Uploaded Product image.', use_column_width=True)
     st.write("")
     st.write("Classifying...")
     shoes_accuracy()
