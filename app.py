@@ -206,31 +206,36 @@ if uploaded_file is not None:
     with col2:
         pants_accuracy()
 
-    #shirts_accuracy()
-    label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
-    #st.write(label)
-    if label == 0:
-        st.write("SportsWearLogo")
-    elif label == 1:
-        st.write("EssentialsEmbroidedLinearLogo")
-    elif label == 2:
-        st.write("OwnTheRun")
-    elif label == 3:
-        st.write("Runner")
-    elif label == 4:
-        st.write("BSC 3Stripes Insulated Jacket")
-    elif label == 5:
-        st.write("MyShelter RegnJakke")
-    elif label == 6:
-        st.write("Terrex Multi Prime Green Full Zip Fleece Jakke")
-    elif label == 7:
-        st.write("Adicross Evolution")
-    elif label == 8:
-        st.write("GoToPolo")
-    elif label == 9:
-        st.write("GoToPrimeGreenPique")
-    else:
-        st.write("PerformancePrimeGreen")
+    with st.container():
+        col1, col2, col3 = st.columns(3)
+    with col1:
+        label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
+        #st.write(label)
+        if label == 0:
+            st.write("SportsWearLogo")
+        elif label == 1:
+            st.write("EssentialsEmbroidedLinearLogo")
+        elif label == 2:
+            st.write("OwnTheRun")
+        elif label == 3:
+            st.write("Runner")
+        elif label == 4:
+            st.write("BSC 3Stripes Insulated Jacket")
+        elif label == 5:
+            st.write("MyShelter RegnJakke")
+        elif label == 6:
+            st.write("Terrex Multi Prime Green Full Zip Fleece Jakke")
+        elif label == 7:
+            st.write("Adicross Evolution")
+        elif label == 8:
+            st.write("GoToPolo")
+        elif label == 9:
+            st.write("GoToPrimeGreenPique")
+        else:
+            st.write("PerformancePrimeGreen")
+
+    with col2:
+        shirts_accuracy()
 
 with st.container():
     col1, col2, col3 = st.columns(3)
