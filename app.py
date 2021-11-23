@@ -417,5 +417,3 @@ with st.container():
             if st.button('SUBMIT'):
                 st.write('The image is being uploaded to the cloud wth the corrected classification')
                 #cloudinary.uploader.upload(image)
-            else:
-                st.write('Goodbye')
