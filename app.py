@@ -55,7 +55,10 @@ category_select-box= st.sidebar.selectbox(
 )
 
 if add_selectbox == "Single Product":
-    
+     
+    #cloudinary.uploader.upload(image)
+else:
+    #st.write('Goodbye')   
 
 #CLOUDINARY_URL = cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
 
