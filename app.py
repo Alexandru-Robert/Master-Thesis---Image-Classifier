@@ -43,21 +43,6 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 #      st.write("filename:", uploaded_file.name)
 #      st.write(bytes_data)
 
-#need to see how to do if single product image is uploaded. Now it classifies for all classes
-
-smsb = st.sidebar.selectbox(
-    "What type of pictures are there going to be added? Single product or multiple product?",
-    ("Multiple product","Single Product")
-)
-
-
-
-if smsb == "Single Product":
-    csb= st.sidebar.selectbox(
-    "What category does the product belong to?",
-    ("Shoes", "Pants/Shorts", "Shirts"))
-
-
 #CLOUDINARY_URL = cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
 
 # cloudinary.config( 
@@ -150,107 +135,119 @@ def shirts_accuracy():
     st.write(confidence,"%")
     #st.write(prediction)
 
+#need to see how to do if single product image is uploaded. Now it classifies for all classes
+smsb = st.sidebar.selectbox(
+    "What type of pictures are there going to be added? Single product or multiple product?",
+    ("Multiple product","Single Product")
+)
+
+if smsb == "Single Product":
+    csb= st.sidebar.selectbox(
+    "What category does the product belong to?",
+    ("Shoes", "Pants/Shorts", "Shirts"))
+else:
+    st.write("#multiple")
+
+
 
 if uploaded_file is not None:
-
     with st.container():
         col1, col2, col3 = st.columns(3)
-    with col2:
-        image = Image.open(uploaded_file)
-        st.image(image, width=200 ,caption='Uploaded Product image.')
-            
+        with col2:
+            image = Image.open(uploaded_file)
+            st.image(image, width=200 ,caption='Uploaded Product image.')            
     st.write("")
     st.write("Classifying...")
-
+    #SHOES
     with st.container():
         col1, col2, col3 = st.columns(3)
-    #OUTPUT LABEL OF SHOES
-    with col1:
-        label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
-        #st.write(label)
-        if label == 0:
-            st.write("RunFalcon 2.0")
-        elif label == 1:
-            st.write("Supernova")
-        elif label == 2:
-            st.write("Ultraboozt 5.0 DNA")
-        elif label == 3:
-            st.write("Ultraboost 21")
-        elif label == 4:
-            st.write("X9000 L3")
-        elif label == 5:
-            st.write("ZG21")
-        elif label == 6:
-            st.write("Adicross Retro")
-        elif label == 7:
-            st.write("Adic XZ Prime Blue")
-        elif label == 8:
-            st.write("Terrex Swift")
-        elif label == 9:
-            st.write("Terrex Voyajer 21 Travel")
-        else:
-            st.write("Terrex Free Hiker Prime Blue")
-    #CONFIDENCE LEVEL OF SHOES
-    with col2:
-        shoes_accuracy()    
-
+        #OUTPUT LABEL OF SHOES
+        with col1:
+            label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+            #st.write(label)
+            if label == 0:
+                st.write("RunFalcon 2.0")
+            elif label == 1:
+                st.write("Supernova")
+            elif label == 2:
+                st.write("Ultraboozt 5.0 DNA")
+            elif label == 3:
+                st.write("Ultraboost 21")
+            elif label == 4:
+                st.write("X9000 L3")
+            elif label == 5:
+                st.write("ZG21")
+            elif label == 6:
+                st.write("Adicross Retro")
+            elif label == 7:
+                st.write("Adic XZ Prime Blue")
+            elif label == 8:
+                st.write("Terrex Swift")
+            elif label == 9:
+                st.write("Terrex Voyajer 21 Travel")
+            else:
+                st.write("Terrex Free Hiker Prime Blue")
+        #CONFIDENCE LEVEL OF SHOES
+        with col2:
+            shoes_accuracy()    
+    #PANTS
     with st.container():
         col1, col2, col3 = st.columns(3)
-    #OUTPUT LABEL OF PANTS    
-    with col1:
-        label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
-        #st.write(label)
-        if label == 0:
-            st.write("4KRFT")
-        elif label == 1:
-            st.write("Aerostripes 3 slim")
-        elif label == 2:
-            st.write("FiveTenFeelsBlockBusker")
-        elif label == 3:
-            st.write("TerrexHikeBusker")
-        elif label == 4:
-            st.write("LiteflexHikingBusker")
-        elif label == 5:
-            st.write("ZupahikeHikingBusker")
-        elif label == 6:
-            st.write("Ultimate 365 Tapered Bukser")
-        else:
-            st.write("Utimate365 Core Shorts")
-    #CONFIDENCE LEVEL OF PANTS    
-    with col2:
-        pants_accuracy()
-
+        #OUTPUT LABEL OF PANTS    
+        with col1:
+            label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
+            #st.write(label)
+            if label == 0:
+                st.write("4KRFT")
+            elif label == 1:
+                st.write("Aerostripes 3 slim")
+            elif label == 2:
+                st.write("FiveTenFeelsBlockBusker")
+            elif label == 3:
+                st.write("TerrexHikeBusker")
+            elif label == 4:
+                st.write("LiteflexHikingBusker")
+            elif label == 5:
+                st.write("ZupahikeHikingBusker")
+            elif label == 6:
+                st.write("Ultimate 365 Tapered Bukser")
+            else:
+                st.write("Utimate365 Core Shorts")
+        #CONFIDENCE LEVEL OF PANTS    
+        with col2:
+            pants_accuracy()
+    #SHIRTS
     with st.container():
         col1, col2, col3 = st.columns(3)
-    #OUTPUT LABEL OF SHIRTS
-    with col1:
-        label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
-        #st.write(label)
-        if label == 0:
-            st.write("SportsWearLogo")
-        elif label == 1:
-            st.write("EssentialsEmbroidedLinearLogo")
-        elif label == 2:
-            st.write("OwnTheRun")
-        elif label == 3:
-            st.write("Runner")
-        elif label == 4:
-            st.write("BSC 3Stripes Insulated Jacket")
-        elif label == 5:
-            st.write("MyShelter RegnJakke")
-        elif label == 6:
-            st.write("Terrex Multi Prime Green Full Zip Fleece Jakke")
-        elif label == 7:
-            st.write("Adicross Evolution")
-        elif label == 8:
-            st.write("GoToPolo")
-        elif label == 9:
-            st.write("GoToPrimeGreenPique")
-        else:
-            st.write("PerformancePrimeGreen")
-    #CONFIDENCE LEVEL OF SHIRTS
-    with col2:
-        shirts_accuracy()
+        #OUTPUT LABEL OF SHIRTS
+        with col1:
+            label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
+            #st.write(label)
+            if label == 0:
+                st.write("SportsWearLogo")
+            elif label == 1:
+                st.write("EssentialsEmbroidedLinearLogo")
+            elif label == 2:
+                st.write("OwnTheRun")
+            elif label == 3:
+                st.write("Runner")
+            elif label == 4:
+                st.write("BSC 3Stripes Insulated Jacket")
+            elif label == 5:
+                st.write("MyShelter RegnJakke")
+            elif label == 6:
+                st.write("Terrex Multi Prime Green Full Zip Fleece Jakke")
+            elif label == 7:
+                st.write("Adicross Evolution")
+            elif label == 8:
+                st.write("GoToPolo")
+            elif label == 9:
+                st.write("GoToPrimeGreenPique")
+            else:
+                st.write("PerformancePrimeGreen")
+        #CONFIDENCE LEVEL OF SHIRTS
+        with col2:
+            shirts_accuracy()
 
 with st.container():
     col1, col2, col3 = st.columns(3)
