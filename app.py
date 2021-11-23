@@ -153,7 +153,7 @@ if smsb == "Single Product":
                     image = Image.open(uploaded_file)
                     st.image(image, width=200 ,caption='Uploaded Product image.')            
             st.write("")
-            st.write("Classifying...")
+            st.spinner(text="Classifying...")
             #SHOES
             with st.container():
                 col1, col2, col3 = st.columns(3)
