@@ -114,7 +114,9 @@ def pants_accuracy():
     # Load the image into the array
     data[0] = normalized_image_array
     prediction = shoes_model.predict(data)
-    st.write(prediction)
+    confidence = np.amax(prediction) 
+    st.write(confidence)
+    #st.write(prediction)
 
 def shirts_accuracy():
     shoes_model = load_model('Shirts_keras_model.h5')
@@ -136,7 +138,9 @@ def shirts_accuracy():
     # Load the image into the array
     data[0] = normalized_image_array
     prediction = shoes_model.predict(data)
-    st.write(prediction)
+    confidence = np.amax(prediction) 
+    st.write(confidence)
+    #st.write(prediction)
 
 
 if uploaded_file is not None:
