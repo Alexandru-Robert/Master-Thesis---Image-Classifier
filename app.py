@@ -138,7 +138,7 @@ def shirts_accuracy():
 if uploaded_file is not None:
 
     with st.container():
-    col1, col2, col3 = st.columns(3)
+        col1, col2, col3 = st.columns(3)
     with col1:
 
     with col2:
