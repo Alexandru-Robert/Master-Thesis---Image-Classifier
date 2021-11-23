@@ -189,7 +189,7 @@ if smsb == "Single Product":
         #User Input
         with st.container():
             col1, col2, col3 = st.columns(3)
-            with col2:
+            with col1:
                 st.header("Shoes")
                 options = st.multiselect(
                 'What shoes model is in the picture?',
@@ -233,7 +233,7 @@ if smsb == "Single Product":
         #User Input
         with st.container():
             col1, col2, col3 = st.columns(3)
-            with col2:
+            with col1:
                 st.header("Pants/Shorts")
                 options = st.multiselect(
                 'What Pants/Shorts model is in the picture?',
@@ -282,7 +282,7 @@ if smsb == "Single Product":
         #User Input
         with st.container():
             col1, col2, col3 = st.columns(3)
-            with col2:
+            with col1:
                 st.header("Shirts")
                 options = st.multiselect(
                 'What Shirt model is in the picture?',
@@ -411,9 +411,7 @@ else:
 def upload(file, **options):
     st.write('')
 
-with st.container():
-        col1, col2, col3 = st.columns(3)
-        with col3:
-            if st.button('SUBMIT'):
-                st.write('The image is being uploaded to the cloud wth the corrected classification')
-                #cloudinary.uploader.upload(image)
+
+if st.button('SUBMIT'):
+    st.write('The image is being uploaded to the cloud wth the corrected classification')
+    #cloudinary.uploader.upload(image)
