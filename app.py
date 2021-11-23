@@ -88,7 +88,6 @@ def shoes_accuracy():
     prediction = shoes_model.predict(data)
     st.write(prediction)
 
-
 def pants_accuracy():
     shoes_model = load_model('keras_modelPantsv2.h5')
     # Create the array of the right shape to feed into the keras model
@@ -110,7 +109,6 @@ def pants_accuracy():
     data[0] = normalized_image_array
     prediction = shoes_model.predict(data)
     st.write(prediction)
-
 
 def shirts_accuracy():
     shoes_model = load_model('Shirts_keras_model.h5')
@@ -236,6 +234,6 @@ def upload(file, **options):
 
 if st.button('SUBMIT'):
     st.write('The image is being uploaded to the cloud wth the corrected classification')
-    cloudinary.uploader.upload(image)
+    #cloudinary.uploader.upload(image)
 else:
     st.write('Goodbye')
