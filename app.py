@@ -181,25 +181,30 @@ if uploaded_file is not None:
     with col2:
         shoes_accuracy()    
 
-    #pants_accuracy()
-    label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
-    #st.write(label)
-    if label == 0:
-        st.write("4KRFT")
-    elif label == 1:
-        st.write("Aerostripes 3 slim")
-    elif label == 2:
-        st.write("FiveTenFeelsBlockBusker")
-    elif label == 3:
-        st.write("TerrexHikeBusker")
-    elif label == 4:
-        st.write("LiteflexHikingBusker")
-    elif label == 5:
-        st.write("ZupahikeHikingBusker")
-    elif label == 6:
-        st.write("Ultimate 365 Tapered Bukser")
-    else:
-        st.write("Utimate365 Core Shorts")
+    with st.container():
+        col1, col2, col3 = st.columns(3)
+    with col1:
+        label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
+        #st.write(label)
+        if label == 0:
+            st.write("4KRFT")
+        elif label == 1:
+            st.write("Aerostripes 3 slim")
+        elif label == 2:
+            st.write("FiveTenFeelsBlockBusker")
+        elif label == 3:
+            st.write("TerrexHikeBusker")
+        elif label == 4:
+            st.write("LiteflexHikingBusker")
+        elif label == 5:
+            st.write("ZupahikeHikingBusker")
+        elif label == 6:
+            st.write("Ultimate 365 Tapered Bukser")
+        else:
+            st.write("Utimate365 Core Shorts")
+    
+    with col2:
+        pants_accuracy()
 
     #shirts_accuracy()
     label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
