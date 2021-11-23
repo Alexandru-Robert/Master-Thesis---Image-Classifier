@@ -393,18 +393,18 @@ else:
         with col1:
             st.header("Shoes")
             options = st.multiselect(
-            'What shoes model is in the picture?',
+            'Shoes model in the picture:',
             ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'])
             #st.write('You selected:', options)
         with col2:
             st.header("Pants/Shorts")
             options = st.multiselect(
-            'What Pants/Shorts model is in the picture?',
+            'Pants/Shorts model in the picture:',
             ['4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'])
         with col3:
             st.header("Shirts")
             options = st.multiselect(
-            'What Shirt model is in the picture?',
+            'Shirt model in the picture:',
             ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'])
 
 def upload(file, **options):
