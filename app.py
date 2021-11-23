@@ -149,7 +149,7 @@ if uploaded_file is not None:
             
     st.write("")
     st.write("Classifying...")
-    shoes_accuracy()
+    
     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
     #st.write(label)
     if label == 0:
@@ -174,6 +174,7 @@ if uploaded_file is not None:
         st.write("Terrex Voyajer 21 Travel")
     else:
         st.write("Terrex Free Hiker Prime Blue")
+    shoes_accuracy()    
 
     #pants_accuracy()
     label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
