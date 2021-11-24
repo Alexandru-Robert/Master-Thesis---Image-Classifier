@@ -143,7 +143,7 @@ smsb = st.sidebar.selectbox(
     "What type of pictures are there going to be added? Single product or multiple product?",
     ("Multiple product","Single Product")
 )
-@st.cache
+@st.cache(suppress_st_warning=True)
 def binding_socket():
     # This function will only be run the first time it's called
     if smsb == "Single Product":
