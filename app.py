@@ -457,13 +457,17 @@ def upload(file, **options):
 
 if st.button('SUBMIT'):
     st.write('The image is being uploaded to the cloud wth the corrected classification')
-    
+    stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+    st.write(stringio)
+    string_data = stringio.read()     
+    st.write(string_data)
     with BytesIO() as buf:
         image.save(buf, 'jpeg')
         image_bytes = buf.getvalue()
     cloudinary.uploader.upload(image_bytes, 
-    folder = "v1637753502/SampleImages/Golf/", 
-    #public_id = "my_dog",
+    folder = "SampleImages/Golf/", 
+    public_id = uploaded_file.name,
     #overwrite = true, 
     #notification_url = "https://mysite.example.com/notify_endpoint", 
     resource_type = "image")
+    cloudinary.uploader.add_tag(imageTags, ['dog', 'lion'])
