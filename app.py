@@ -418,15 +418,13 @@ if smsb == "Single Product":
 else:
     if st.button('SUBMIT'):
         st.write('The image is being uploaded to the cloud wth the corrected classification')
-
-
         with BytesIO() as buf:
             image.save(buf, 'jpeg')
             image_bytes = buf.getvalue()
         cloudinary.uploader.upload(image_bytes, 
         folder = "SampleImages/" + imageTags +"/", 
-        tags = imageTags,
-        public_id = imageTitle+str(randomID),
+        tags = imageTitle,
+        public_id = imageTags+str(randomID),
         caption = str(imageTitle)
         #overwrite = true, 
         #notification_url = "https://mysite.example.com/notify_endpoint", 
