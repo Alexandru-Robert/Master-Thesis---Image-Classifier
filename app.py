@@ -62,6 +62,7 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 running = ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','4KRFT', 'Aerostripes 3 slim','SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner']
 outdoor = ['Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue','FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke']
 golf = ['ZG21','Adicross Retro','Adic XZ Prime Blue','Ultimate 365 Tapered','Ultimate 365 Core Shorts','Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen']
+unknown = 'Unknown'
 
 imageTags = []
 imageTitle = ''
@@ -226,7 +227,8 @@ if smsb == "Single Product":
                     imageTitle = 'Unknown'
                     imageDescription ='Must be Classified, class not found' 
                     st.write('The selected tag is not available')
-
+st.write(imageTags)
+st.write(imageTitle)
 
 
 
