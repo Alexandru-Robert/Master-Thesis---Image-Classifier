@@ -444,14 +444,14 @@ else:
             optionShirts = st.multiselect(
             'Shirt model in the picture:',
             ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'])
-        if optionSingleShoes in running:
+        if optionShoes in running:
             imageTags = 'Running'
-            imageTitle = optionSingleShoes
-        elif optionSingleShoes in outdoor:
-            imageTitle = optionSingleShoes
+            imageTitle = optionShoes
+        elif optionShoes in outdoor:
+            imageTitle = optionShoes
             imageTags = 'Outdoor'
-        elif optionSingleShoes in golf:
-            imageTitle = optionSingleShoes
+        elif optionShoes in golf:
+            imageTitle = optionShoes
             imageTags = 'Golf'
         else:
             imageTags =  'Unknown'
