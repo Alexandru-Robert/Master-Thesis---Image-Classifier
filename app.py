@@ -191,7 +191,7 @@ if smsb == "Single Product":
                     elif optionSingleShoes in golf:
                         imageTitle = optionSingleShoes
                         imageTags = 'Golf' 
-                        imageTags += append(optionSingleShoes)
+                        imageTags += optionSingleShoes
                     else:
                         imageTags =  'Unknown'
                         imageTitle = 'Unknown'
