@@ -146,8 +146,6 @@ output_label_shoes = ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultra
 output_label_pants = ['4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts']
 output_label_shirts = ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen']
 
-
-checker_for_no_img = 0
 def shirts_user_input(x):
     global imageTags
     global imageTitle
@@ -262,7 +260,6 @@ def pants_user_input(z):
              #   st.header("Add an Image")
             #st.write('You selected:', options)
             # st.write(optionSingleShoes)
-
 
 if smsb == "Single Product":
     csb= st.sidebar.selectbox("What category does the product belong to?",("Shoes", "Pants/Shorts", "Shirts"))
@@ -381,7 +378,8 @@ else:
         shirts_user_input(col1)
         shoes_user_input(col2)
         pants_user_input(col3)
-
+        st.write(imageTags)
+        st.write(imageTitle)
 
 # def upload(file, **options):
 #     st.write('')
@@ -389,18 +387,35 @@ else:
 
 randomID = random.randint(0, 999999)
 #st.write(randomID)
+if smsb == "Single Product":
+    if st.button('SUBMIT'):
+        st.write('The image is being uploaded to the cloud wth the corrected classification')
+        with BytesIO() as buf:
+            image.save(buf, 'jpeg')
+            image_bytes = buf.getvalue()
+        cloudinary.uploader.upload(image_bytes, 
+        folder = "SampleImages/" + imageTags +"/", 
+        tags = imageTags,
+        public_id = imageTitle+str(randomID),
+        caption = str(imageTitle)
+        #overwrite = true, 
+        #notification_url = "https://mysite.example.com/notify_endpoint", 
+        #resource_type = "image"
+        )
+else:
+    if st.button('SUBMIT'):
+        st.write('The image is being uploaded to the cloud wth the corrected classification')
 
-if st.button('SUBMIT'):
-    st.write('The image is being uploaded to the cloud wth the corrected classification')
-    with BytesIO() as buf:
-        image.save(buf, 'jpeg')
-        image_bytes = buf.getvalue()
-    cloudinary.uploader.upload(image_bytes, 
-    folder = "SampleImages/" + imageTags +"/", 
-    tags = imageTags,
-    public_id = imageTitle+str(randomID),
-    caption = str(imageTitle)
-    #overwrite = true, 
-    #notification_url = "https://mysite.example.com/notify_endpoint", 
-    #resource_type = "image"
-    )
+        
+        with BytesIO() as buf:
+            image.save(buf, 'jpeg')
+            image_bytes = buf.getvalue()
+        cloudinary.uploader.upload(image_bytes, 
+        folder = "SampleImages/" + imageTags +"/", 
+        tags = imageTags,
+        public_id = imageTitle+str(randomID),
+        caption = str(imageTitle)
+        #overwrite = true, 
+        #notification_url = "https://mysite.example.com/notify_endpoint", 
+        #resource_type = "image"
+        )
