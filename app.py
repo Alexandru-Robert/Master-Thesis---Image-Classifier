@@ -156,7 +156,7 @@ def shirts_user_input(x):
                 st.header("Shirts")
                 labelint = label.item()
                 optionSingleShirts = st.selectbox(
-                        'What Shirt model is in the picture?',
+                        'Shirt model in the picture.',
                         ['Unknown','SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'],
                         index= labelint +1
                         )
@@ -191,7 +191,7 @@ def shoes_user_input(y):
                 labelint = label.item()
                 st.header("Shoes")
                 optionSingleShoes = st.selectbox(
-                'What shoes model is in the picture?',
+                'Shoes model in the picture.',
                 ['Unknown','RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'],
                 index = labelint + 1)                    
                 if optionSingleShoes in running:
@@ -225,7 +225,7 @@ def pants_user_input(z):
                 labelint = label.item()
                 st.header("Pants/Shorts")
                 optionSinglePants = st.selectbox(
-                    'What Pants/Shorts model is in the picture?',
+                    'Pants/Shorts model in the picture.',
                     ['Unknown','4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'],
                     index= labelint + 1)
                 if optionSinglePants in running:
@@ -453,9 +453,9 @@ else:
                 shirts_accuracy()
 
     #User Input
-    shoes_user_input(col1)
+    shoes_user_input(col3)
     pants_user_input(col2)
-    shirts_user_input(col3)
+    shirts_user_input(col1)
     # with st.container():
     #     col1, col2, col3 = st.columns(3)
     #     with col1:
