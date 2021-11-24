@@ -49,7 +49,7 @@ cloudinary.config(
   cloud_name = "stibodata", 
   api_key = "461531742435772", 
   api_secret = "shF0nm0r22IFe3wFXAKynxIr82s",
-  secure = true
+  #secure = true
 )
 
 # cloudinary.uploader.upload("dog.mp4", 
