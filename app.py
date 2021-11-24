@@ -143,7 +143,9 @@ smsb = st.sidebar.selectbox(
     "What type of pictures are there going to be added? Single product or multiple product?",
     ("Multiple product","Single Product")
 )
-
+@st.cache
+def binding_socket():
+    # This function will only be run the first time it's called
 if smsb == "Single Product":
     csb= st.sidebar.selectbox(
     "What category does the product belong to?",
@@ -324,7 +326,6 @@ if smsb == "Single Product":
                 ['Unknown','SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'],
                 index= labelint +1
                 )
-
 else:
     if uploaded_file is not None:
         with st.container():
@@ -464,6 +465,8 @@ else:
     #     st.header("Add an Image")
     #else:
     #st.write('nothing')
+
+binding_socket()
 
 def upload(file, **options):
     st.write('')
