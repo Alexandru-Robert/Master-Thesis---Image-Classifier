@@ -11,6 +11,7 @@ import cloudinary.api
 from io import BytesIO, StringIO
 from random import random
 import random
+from collections import Counter
 
 st.set_page_config(page_title="MasterThesis", page_icon=None,layout='centered', initial_sidebar_state='auto')
 # favicon being an object of the same kind as the one you should provide st.image() with (ie. a PIL array for example) or a string (url or local file path)
@@ -379,7 +380,10 @@ else:
         shoes_user_input(col2)
         pants_user_input(col3)
         st.write(imageTags)
-        st.write(imageTitle)
+        st.write(imageTitle)        
+
+        st.write(Counter(imageTags))
+        st.write(imageTags.count("Outdoor"))
 
 # def upload(file, **options):
 #     st.write('')
@@ -406,7 +410,7 @@ else:
     if st.button('SUBMIT'):
         st.write('The image is being uploaded to the cloud wth the corrected classification')
 
-        
+
         with BytesIO() as buf:
             image.save(buf, 'jpeg')
             image_bytes = buf.getvalue()
