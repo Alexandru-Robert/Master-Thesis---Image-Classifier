@@ -222,7 +222,7 @@ if smsb == "Single Product":
                 elif optionSingleShoes in golf:
                     imageTags = optionSingleShoes
                     imageTitle = 'Golf'
-                elif optionSingleShoes  = 'Unknown':
+                elif optionSingleShoes  == 'Unknown':
                     imageTags =  'Unknown'
                     imageTitle = 'Unknown'
                     imageDescription ='Must be Classified, class not found' 
