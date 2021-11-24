@@ -460,8 +460,8 @@ else:
             st.write('The selected class is not available')
         st.write(imageTags)
         st.write(imageTitle)
-    else:
-        st.header("Add an Image")
+    # else:
+    #     st.header("Add an Image")
     #else:
     #st.write('nothing')
 
