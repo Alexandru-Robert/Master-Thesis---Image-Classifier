@@ -63,8 +63,8 @@ running = ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','
 outdoor = ['Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue','FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke']
 golf = ['ZG21','Adicross Retro','Adic XZ Prime Blue','Ultimate 365 Tapered','Ultimate 365 Core Shorts','Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen']
 
-imageTags = []
-imageTitle = ''
+imageTags = ''
+imageTitle = []
 imageDescription = ''
 
 def shoes_accuracy():
