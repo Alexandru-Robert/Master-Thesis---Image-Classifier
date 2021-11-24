@@ -205,27 +205,28 @@ if smsb == "Single Product":
                     'What shoes model is in the picture?',
                     ['Unknown','RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'],
                     index = labelint + 1
-                    )
+                    )                    
+                    if optionSingleShoes in running:
+                        imageTags = optionSingleShoes
+                        imageTitle = 'Running'
+                    elif optionSingleShoes in outdoor:
+                        imageTags = optionSingleShoes
+                        imageTitle = 'Outdoor'
+                    elif optionSingleShoes in golf:
+                        imageTags = optionSingleShoes
+                        imageTitle = 'Golf'
+                    else:
+                        imageTags =  'Unknown'
+                        imageTitle = 'Unknown'
+                        imageDescription ='Must be Classified, class not found' 
+                        st.write('The selected tag is not available')
+                        
                 else:
-                    st.header("Please add an Image")
+                    st.header("Add an Image")
 
                 #st.write('You selected:', options)
                 st.write(optionSingleShoes)
 
-                if optionSingleShoes in running:
-                    imageTags = optionSingleShoes
-                    imageTitle = 'Running'
-                elif optionSingleShoes in outdoor:
-                    imageTags = optionSingleShoes
-                    imageTitle = 'Outdoor'
-                elif optionSingleShoes in golf:
-                    imageTags = optionSingleShoes
-                    imageTitle = 'Golf'
-                else:
-                    imageTags =  'Unknown'
-                    imageTitle = 'Unknown'
-                    imageDescription ='Must be Classified, class not found' 
-                    st.write('The selected tag is not available')
                 st.write(imageTags)
                 st.write(imageTitle)
 
