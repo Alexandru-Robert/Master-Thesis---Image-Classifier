@@ -453,9 +453,9 @@ def upload(file, **options):
     st.write('')
 
 
-randomID = random()
+int randomID = random()
 st.write(randomID)
-randomID = uniform(2, 100)  
+int randomID = uniform(2, 100)  
 st.write(randomID)
 
 
