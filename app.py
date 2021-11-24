@@ -457,7 +457,7 @@ def upload(file, **options):
 
 if st.button('SUBMIT'):
     st.write('The image is being uploaded to the cloud wth the corrected classification')
-    stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+    stringio = StringIO(image.getvalue().decode("utf-8"))
     st.write(stringio)
     string_data = stringio.read()     
     st.write(string_data)
