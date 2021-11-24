@@ -5,9 +5,9 @@ from PIL import Image, ImageOps
 from img_classification import teachable_machine_classification
 from explore_page import show_explore_page
 import numpy as np
-#import cloudinary
-#import cloudinary.uploader
-#import cloudinary.api
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 st.set_page_config(page_title="MasterThesis", page_icon=None,layout='centered', initial_sidebar_state='auto')
 # favicon being an object of the same kind as the one you should provide st.image() with (ie. a PIL array for example) or a string (url or local file path)
@@ -43,14 +43,14 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 #      st.write("filename:", uploaded_file.name)
 #      st.write(bytes_data)
 
-#CLOUDINARY_URL = cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
+CLOUDINARY_URL = cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
 
-# cloudinary.config( 
-#   cloud_name = "stibodata", 
-#   api_key = "461531742435772", 
-#   api_secret = "shF0nm0r22IFe3wFXAKynxIr82s",
-#   secure = true
-# )
+cloudinary.config( 
+  cloud_name = "stibodata", 
+  api_key = "461531742435772", 
+  api_secret = "shF0nm0r22IFe3wFXAKynxIr82s",
+  secure = true
+)
 
 # cloudinary.uploader.upload("dog.mp4", 
 #   folder = "myfolder/mysubfolder/", 
@@ -456,6 +456,7 @@ else:
 
 def upload(file, **options):
     st.write('')
+
 
 
 
