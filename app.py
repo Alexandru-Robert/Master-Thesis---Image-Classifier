@@ -422,7 +422,7 @@ else:
             ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'])
 
 
-if optionShoes in running:
+if optionSingleShoes in running:
     st.write('Running picture')
 
 def upload(file, **options):
