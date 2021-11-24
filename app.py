@@ -396,7 +396,7 @@ else:
             imageTags = 'Running'
         else:
             imageTags = 'Unknown'        
-        st.write(imageTags)
+        #st.write(imageTags)
 
 
 # def upload(file, **options):
