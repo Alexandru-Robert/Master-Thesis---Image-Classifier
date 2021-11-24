@@ -423,7 +423,7 @@ else:
             ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'])
 
 
-if optionSingleShoes in running:
+if optionShoes in running:
     st.write('Running picture')
 else:
     st.write('nothing')
