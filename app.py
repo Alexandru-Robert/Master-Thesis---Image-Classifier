@@ -466,7 +466,7 @@ if st.button('SUBMIT'):
     folder = "SampleImages/" + imageTags +"/", 
     tags = imageTags,
     public_id = imageTitle+str(randomID),
-    caption = imageTitle
+    caption = str(imageTitle)
     #overwrite = true, 
     #notification_url = "https://mysite.example.com/notify_endpoint", 
     #resource_type = "image"
