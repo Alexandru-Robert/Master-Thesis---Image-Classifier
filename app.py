@@ -9,6 +9,7 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 from io import BytesIO, StringIO
+from random import random, uniform
 
 st.set_page_config(page_title="MasterThesis", page_icon=None,layout='centered', initial_sidebar_state='auto')
 # favicon being an object of the same kind as the one you should provide st.image() with (ie. a PIL array for example) or a string (url or local file path)
@@ -452,7 +453,10 @@ def upload(file, **options):
     st.write('')
 
 
-
+randomID = random()
+st.write(randomID)
+randomID = uniform(2, 100)  
+st.write(randomID)
 
 
 if st.button('SUBMIT'):
@@ -466,4 +470,4 @@ if st.button('SUBMIT'):
     #overwrite = true, 
     #notification_url = "https://mysite.example.com/notify_endpoint", 
     resource_type = "image")
-    cloudinary.uploader.add_tag(imageTags, ['dog', 'lion'])
+    cloudinary.uploader.add_tag(imageTitle, ['dog', 'lion'])
