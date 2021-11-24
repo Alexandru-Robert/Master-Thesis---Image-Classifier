@@ -32,7 +32,7 @@ st.markdown(hide_footer_style, unsafe_allow_html=True)
 # if page == "Explore":
 #     show_explore_page()
 
-st.title("Image Classification ")
+st.title("Automatic Image Classifier")
 st.header("Product image classification")
 st.text("Upload a product Image for image classification as different classes")
 
@@ -457,27 +457,12 @@ def upload(file, **options):
 
 if st.button('SUBMIT'):
     st.write('The image is being uploaded to the cloud wth the corrected classification')
-    imageID = image
-
-# To read file as bytes: ... 
-    bytes_data = uploaded_file.getvalue() 
-    #st.write(bytes_data)
-    contents = uploaded_file.decode('utf-8', 'ignore')
-
-# To convert to a string based IO: 
-    stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-    st.write(stringio)
-
-# To read file as string: ... 
-    string_data = stringio.read() 
-    st.write(string_data)
-
     with BytesIO() as buf:
         image.save(buf, 'jpeg')
         image_bytes = buf.getvalue()
     cloudinary.uploader.upload(image_bytes, 
     folder = "SampleImages/Golf/", 
-    public_id = imageID,
+    public_id = imageTitle,
     #overwrite = true, 
     #notification_url = "https://mysite.example.com/notify_endpoint", 
     resource_type = "image")
