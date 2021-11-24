@@ -146,6 +146,8 @@ output_label_shoes = ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultra
 output_label_pants = ['4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts']
 output_label_shirts = ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen']
 
+
+
 def shirts_user_input(x):
     with st.container():
         col1, col2, col3 = st.columns(3)
@@ -453,9 +455,11 @@ else:
                 shirts_accuracy()
 
     #User Input
-    shoes_user_input(col3)
-    pants_user_input(col2)
-    shirts_user_input(col1)
+    with st.container():
+        col1,col2,col3 = st.columns(3)
+        shoes_user_input(col2)
+        pants_user_input(col3)
+        shirts_user_input(col1)
     # with st.container():
     #     col1, col2, col3 = st.columns(3)
     #     with col1:
