@@ -461,7 +461,7 @@ if st.button('SUBMIT'):
         image.save(buf, 'jpeg')
         image_bytes = buf.getvalue()
     cloudinary.uploader.upload(image_bytes, 
-    folder = "SampleImages/Golf/", 
+    folder = "SampleImages/" + imageTags +"/", 
     public_id = imageTitle,
     #overwrite = true, 
     #notification_url = "https://mysite.example.com/notify_endpoint", 
