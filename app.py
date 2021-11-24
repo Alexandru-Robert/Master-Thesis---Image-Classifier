@@ -139,15 +139,13 @@ def shirts_accuracy():
     #st.write(prediction)
 
 #need to see how to do if single product image is uploaded. Now it classifies for all classes
-smsb = st.sidebar.selectbox(
-    "What type of pictures are there going to be added? Single product or multiple product?",
-    ("Multiple product","Single Product")
-)
+smsb = st.sidebar.selectbox("What type of pictures are there going to be added? Single product or multiple product?",("Multiple product","Single Product"))
+
+output = ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue']]
+
 
 if smsb == "Single Product":
-    csb= st.sidebar.selectbox(
-    "What category does the product belong to?",
-    ("Shoes", "Pants/Shorts", "Shirts"))
+    csb= st.sidebar.selectbox("What category does the product belong to?",("Shoes", "Pants/Shorts", "Shirts"))
     if csb == "Shoes":
         if uploaded_file is not None:
             with st.container():
@@ -155,17 +153,16 @@ if smsb == "Single Product":
                 with col2:
                     image = Image.open(uploaded_file)
                     st.image(image, width=200 ,caption='Uploaded Product image.')            
-                st.write("")
-                st.write("Classifying...")
-                with col2:
-                    st.write("THIS IS A TEST")
+            st.write("")
+            st.write("Classifying...")
             #SHOES
             with st.container():
                 col1, col2, col3 = st.columns(3)
                 #OUTPUT LABEL OF SHOES
                 with col1:
                     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
-                    #st.write(label)
+                    st.write(output.index(label))
+                    st.write(label)
                     if label == 0:
                         st.write("RunFalcon 2.0")
                     elif label == 1:
