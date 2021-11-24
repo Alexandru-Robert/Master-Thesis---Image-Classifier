@@ -59,6 +59,10 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 #   notification_url = "https://mysite.example.com/notify_endpoint", 
 #   resource_type = "video")
 
+running = ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','4KRFT', 'Aerostripes 3 slim','SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner']
+outdoor = ['Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue','FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke']
+golf = ['ZG21','Adicross Retro','Adic XZ Prime Blue','Ultimate 365 Tapered','Ultimate 365 Core Shorts','Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen']
+
 def shoes_accuracy():
     shoes_model = load_model('Shoes_keras_model.h5')
     # Create the array of the right shape to feed into the keras model
@@ -191,7 +195,7 @@ if smsb == "Single Product":
             with col1:
                 st.header("Shoes")
                 labelint = label.item()
-                options = st.selectbox(
+                optionSingleShoes = st.selectbox(
                 'What shoes model is in the picture?',
                 ['Unknown','RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'],
                 index = labelint + 1
@@ -238,7 +242,7 @@ if smsb == "Single Product":
             with col1:
                 st.header("Pants/Shorts")
                 labelint = label.item()
-                options = st.selectbox(
+                optionSinglePants = st.selectbox(
                 'What Pants/Shorts model is in the picture?',
                 ['Unknown','4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'],
                 index= labelint + 1
@@ -290,7 +294,7 @@ if smsb == "Single Product":
             with col1:
                 st.header("Shirts")
                 labelint = label.item()
-                options = st.selectbox(
+                optionSingleShirts = st.selectbox(
                 'What Shirt model is in the picture?',
                 ['Unknown','SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'],
                 index= labelint +1
@@ -401,23 +405,28 @@ else:
         col1, col2, col3 = st.columns(3)
         with col1:
             st.header("Shoes")
-            options = st.multiselect(
+            optionShoes = st.multiselect(
             'Shoes model in the picture:',
             ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'])
             #st.write('You selected:', options)
         with col2:
             st.header("Pants/Shorts")
-            options = st.multiselect(
+            optionPants = st.multiselect(
             'Pants/Shorts model in the picture:',
             ['4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'])
         with col3:
             st.header("Shirts")
-            options = st.multiselect(
+            optionShirts = st.multiselect(
             'Shirt model in the picture:',
             ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'])
 
+
+if optionShoes in running:
+    st.write('Running picture')
+
 def upload(file, **options):
     st.write('')
+
 
 
 if st.button('SUBMIT'):
