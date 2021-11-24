@@ -143,13 +143,93 @@ smsb = st.sidebar.selectbox(
     "What type of pictures are there going to be added? Single product or multiple product?",
     ("Multiple product","Single Product")
 )
-@st.cache(suppress_st_warning=True)
-def binding_socket():
+
+
+#def image_check():
+    if uploaded_file is not None:
+        with st.container():
+            col1, col2, col3 = st.columns(3)
+            with col2:
+                image = Image.open(uploaded_file)
+                st.image(image, width=200 ,caption='Uploaded Product image.')
+               st.write("")
+                st.write("Classifying...")
+                #SHOES
+                with st.container():
+                    col1, col2, col3 = st.columns(3)
+                    #OUTPUT LABEL OF SHOES
+                    with col1:
+                        label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+                        #st.write(label)
+                        if label == 0:
+                            st.write("RunFalcon 2.0")
+                        elif label == 1:
+                            st.write("Supernova")
+                        elif label == 2:
+                            st.write("Ultraboozt 5.0 DNA")
+                        elif label == 3:
+                            st.write("Ultraboost 21")
+                        elif label == 4:
+                            st.write("X9000 L3")
+                        elif label == 5:
+                            st.write("ZG21")
+                        elif label == 6:
+                            st.write("Adicross Retro")
+                        elif label == 7:
+                            st.write("Adic XZ Prime Blue")
+                        elif label == 8:
+                            st.write("Terrex Swift")
+                        elif label == 9:
+                            st.write("Terrex Voyajer 21 Travel")
+                        else:
+                            st.write("Terrex Free Hiker Prime Blue")
+                    #CONFIDENCE LEVEL OF SHOES
+                    with col2:
+                        shoes_accuracy()            
+            #User Input
+            with st.container():
+                col1, col2, col3 = st.columns(3)
+                with col1:
+                    if uploaded_file is not None:
+                        image = Image.open(uploaded_file)
+                        label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+                        labelint = label.item()
+                        st.header("Shoes")
+                        optionSingleShoes = st.selectbox(
+                        'What shoes model is in the picture?',
+                        ['Unknown','RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'],
+                        index = labelint + 1
+                        )                    
+                        if optionSingleShoes in running:
+                            imageTags = 'Running'
+                            imageTitle = optionSingleShoes
+                        elif optionSingleShoes in outdoor:
+                            imageTitle = optionSingleShoes
+                            imageTags = 'Outdoor'
+                        elif optionSingleShoes in golf:
+                            imageTitle = optionSingleShoes
+                            imageTags = 'Golf'
+                        else:
+                            imageTags =  'Unknown'
+                            imageTitle = 'Unknown'
+                            imageDescription ='Must be Classified, class not found' 
+                            st.write('The selected class is not available')
+                        st.write(imageTags)
+                        st.write(imageTitle)
+                    else:
+                        st.header("Add an Image")
+
+                    #st.write('You selected:', options)
+                    # st.write(optionSingleShoes)
+
+
+
+
+#@st.cache
+#def binding_socket():
     # This function will only be run the first time it's called
     if smsb == "Single Product":
-        csb= st.sidebar.selectbox(
-        "What category does the product belong to?",
-        ("Shoes", "Pants/Shorts", "Shirts"))
+        csb= st.sidebar.selectbox("What category does the product belong to?",("Shoes", "Pants/Shorts", "Shirts"))
         if csb == "Shoes":
             if uploaded_file is not None:
                 with st.container():
@@ -157,8 +237,10 @@ def binding_socket():
                     with col2:
                         image = Image.open(uploaded_file)
                         st.image(image, width=200 ,caption='Uploaded Product image.')            
-                st.write("")
-                st.write("Classifying...")
+                    st.write("")
+                    st.write("Classifying...")
+                    with col2: 
+                        st.write("THIS IS A TEST")
                 #SHOES
                 with st.container():
                     col1, col2, col3 = st.columns(3)
@@ -466,7 +548,7 @@ def binding_socket():
         #else:
         #st.write('nothing')
 
-binding_socket()
+#binding_socket()
 
 def upload(file, **options):
     st.write('')
