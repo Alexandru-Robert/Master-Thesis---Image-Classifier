@@ -376,9 +376,9 @@ else:
     #User Input
     with st.container():
         col1,col2,col3 = st.columns(3)
-        shirts_user_input(col1)
-        shoes_user_input(col2)
-        pants_user_input(col3)
+        shoes_user_input(col1)
+        pants_user_input(col2)
+        shirts_user_input(col3)
         st.write(imageTags)
         st.write(imageTitle)        
 
@@ -423,8 +423,9 @@ else:
             image_bytes = buf.getvalue()
         cloudinary.uploader.upload(image_bytes, 
         folder = "SampleImages/" + imageTags +"/", 
-        tags = imageTitle,
-        public_id = imageTags+str(randomID),
+        tags = imageTitle+imageTags,
+        #next line skipped as if we are to add all products, the picture will not have all products in the title
+        #public_id = imageTags+str(randomID),
         caption = str(imageTitle)
         #overwrite = true, 
         #notification_url = "https://mysite.example.com/notify_endpoint", 
