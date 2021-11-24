@@ -208,20 +208,20 @@ if smsb == "Single Product":
                 )
                 #st.write('You selected:', options)
                 st.write(optionSingleShoes)
-                # if optionSingleShoes in running:
-                #     imageTags = optionSingleShoes
-                #     imageTitle = 'Running'
-                # elif optionSingleShoes in outdoor:
-                #     imageTags = optionSingleShoes
-                #     imageTitle = 'Outdoor'
-                # elif optionSingleShoes in golf:
-                #     imageTags = optionSingleShoes
-                #     imageTitle = 'Golf'
-                # else:
-                #     imageTags +=  'Unknown'
-                #     imageTitle = 'Unknown'
-                #     imageDescription ='Must be Classified, class not found' 
-                #     st.write('The selected tag is not available')
+                if optionSingleShoes in running:
+                    imageTags = optionSingleShoes
+                    imageTitle = 'Running'
+                elif optionSingleShoes in outdoor:
+                    imageTags = optionSingleShoes
+                    imageTitle = 'Outdoor'
+                elif optionSingleShoes in golf:
+                    imageTags = optionSingleShoes
+                    imageTitle = 'Golf'
+                else:
+                    imageTags +=  'Unknown'
+                    imageTitle = 'Unknown'
+                    imageDescription ='Must be Classified, class not found' 
+                    st.write('The selected tag is not available')
 
 
 
@@ -272,7 +272,7 @@ if smsb == "Single Product":
                 ['Unknown','4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'],
                 index= labelint + 1
                 )
-                if optionSinglePants in 
+                #if optionSinglePants in 
     else:
         if uploaded_file is not None:
             with st.container():
