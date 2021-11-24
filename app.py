@@ -201,6 +201,7 @@ if smsb == "Single Product":
                     image = Image.open(uploaded_file)
                     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
                     labelint = label.item()
+                    st.header("Shoes")
                     optionSingleShoes = st.selectbox(
                     'What shoes model is in the picture?',
                     ['Unknown','RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'],
@@ -227,10 +228,6 @@ if smsb == "Single Product":
 
                 #st.write('You selected:', options)
                 # st.write(optionSingleShoes)
-
-
-
-
 
     elif csb == "Pants/Shorts":
         if uploaded_file is not None:
