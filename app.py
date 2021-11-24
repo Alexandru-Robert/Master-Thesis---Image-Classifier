@@ -454,11 +454,7 @@ def upload(file, **options):
     st.write('')
 
 
-randomID = random.randint(0, 9999)
-st.write(randomID)
-randomID = uniform(2, 100)  
-st.write(randomID)
-
+randomID = random.randint(0, 999999)
 
 if st.button('SUBMIT'):
     st.write('The image is being uploaded to the cloud wth the corrected classification')
@@ -467,8 +463,8 @@ if st.button('SUBMIT'):
         image_bytes = buf.getvalue()
     cloudinary.uploader.upload(image_bytes, 
     folder = "SampleImages/" + imageTags +"/", 
-    public_id = imageTitle,
+    public_id = imageTitle+randomID,
     #overwrite = true, 
     #notification_url = "https://mysite.example.com/notify_endpoint", 
     resource_type = "image")
-    cloudinary.uploader.add_tag(imageTitle, ['dog', 'lion'])
+    cloudinary.uploader.add_tag(imageTitle+randomID, ['dog', 'lion'])
