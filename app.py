@@ -394,7 +394,7 @@ else:
             imageTags = 'Unknown'        
         st.write(imageTags)
 
-st.write(imageTitle.append(imageTags))
+st.write(imageTitle+imageTags)
 
 # def upload(file, **options):
 #     st.write('')
