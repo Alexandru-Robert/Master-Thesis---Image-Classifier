@@ -464,7 +464,8 @@ def upload(file, **options):
 
 if st.button('SUBMIT'):
     st.write('The image is being uploaded to the cloud wth the corrected classification')
-    with io.BytesIO() as buf:
+    
+    with BytesIO() as buf:
         image.save(buf, 'jpeg')
         image_bytes = buf.getvalue()
     cloudinary.uploader.upload(image_bytes)
