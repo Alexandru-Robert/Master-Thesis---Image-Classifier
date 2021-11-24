@@ -6,7 +6,7 @@ from keras.preprocessing import image
 
 def teachable_machine_classification(img, weights_file):
     # Load the model
-    model = keras.models.load_model(weights_file)
+    model = keras.models.load_model(weights_file, compile=False)
 
     # Create the array of the right shape to feed into the keras model
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
