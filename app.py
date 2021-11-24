@@ -227,8 +227,8 @@ if smsb == "Single Product":
                     imageTitle = 'Unknown'
                     imageDescription ='Must be Classified, class not found' 
                     st.write('The selected tag is not available')
-st.write(imageTags)
-st.write(imageTitle)
+                st.write(imageTags)
+                st.write(imageTitle)
 
 
 
