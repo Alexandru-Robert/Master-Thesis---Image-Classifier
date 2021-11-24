@@ -149,6 +149,9 @@ output_label_shirts = ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnT
 
 checker_for_no_img = 0
 def shirts_user_input(x):
+    global imageTags
+    global imageTitle
+    global imageDescription
     with st.container():
         col1, col2, col3 = st.columns(3)
         with x:
@@ -185,6 +188,9 @@ def shirts_user_input(x):
             # st.write(optionSingleShoes)
 
 def shoes_user_input(y):
+    global imageTags
+    global imageTitle
+    global imageDescription
     with st.container():
         col1, col2, col3 = st.columns(3)
         with y:
@@ -220,6 +226,9 @@ def shoes_user_input(y):
                 # st.write(optionSingleShoes)
 
 def pants_user_input(z):
+    global imageTags
+    global imageTitle
+    global imageDescription    
     with st.container():
         col1, col2, col3 = st.columns(3)
         with z:
