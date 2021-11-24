@@ -45,12 +45,12 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 
 CLOUDINARY_URL = 'cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata'
 
-# cloudinary.config( 
-#   cloud_name = "stibodata", 
-#   api_key = "461531742435772", 
-#   api_secret = "shF0nm0r22IFe3wFXAKynxIr82s",
-#   secure = true
-# )
+cloudinary.config( 
+  cloud_name = "stibodata", 
+  api_key = "461531742435772", 
+  api_secret = "shF0nm0r22IFe3wFXAKynxIr82s",
+  secure = true
+)
 
 # cloudinary.uploader.upload("dog.mp4", 
 #   folder = "myfolder/mysubfolder/", 
