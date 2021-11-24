@@ -147,7 +147,7 @@ output_label_pants = ['4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terre
 output_label_shirts = ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen']
 
 
-
+checker_for_no_img = 0
 def shirts_user_input(x):
     with st.container():
         col1, col2, col3 = st.columns(3)
@@ -156,6 +156,7 @@ def shirts_user_input(x):
                 image = Image.open(uploaded_file)
                 label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
                 st.header("Shirts")
+                checker_for_no_img = 1
                 labelint = label.item()
                 optionSingleShirts = st.selectbox(
                         'Shirt model in the picture.',
@@ -178,8 +179,8 @@ def shirts_user_input(x):
                     st.write('The selected class is not available')
                 #st.write(imageTitle)
                 #st.write(imageTags)
-            else:
-                st.header("Add an Image")
+            #else:
+            #    st.header("Add an Image")
             #st.write('You selected:', options)
             # st.write(optionSingleShoes)
 
@@ -191,6 +192,7 @@ def shoes_user_input(y):
                 image = Image.open(uploaded_file)
                 label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
                 labelint = label.item()
+                checker_for_no_img = 1
                 st.header("Shoes")
                 optionSingleShoes = st.selectbox(
                 'Shoes model in the picture.',
@@ -212,8 +214,8 @@ def shoes_user_input(y):
                     st.write('The selected class is not available')
                 #st.write(imageTags)
                 #st.write(imageTitle)
-            else:
-                st.header("Add an Image")
+            #else:
+            #    st.header("Add an Image")
                 #st.write('You selected:', options)
                 # st.write(optionSingleShoes)
 
@@ -225,6 +227,7 @@ def pants_user_input(z):
                 image = Image.open(uploaded_file)
                 label = teachable_machine_classification(image, 'Pants_keras_model.h5')
                 labelint = label.item()
+                checker_for_no_img = 1
                 st.header("Pants/Shorts")
                 optionSinglePants = st.selectbox(
                     'Pants/Shorts model in the picture.',
@@ -246,8 +249,8 @@ def pants_user_input(z):
                     st.write('The selected class is not available')
                 #st.write(imageTags)
                 #st.write(imageTitle)
-            else:
-                st.header("Add an Image")
+            #else:
+             #   st.header("Add an Image")
             #st.write('You selected:', options)
             # st.write(optionSingleShoes)
 
@@ -276,6 +279,9 @@ if smsb == "Single Product":
         #User Input
         with st.container():
             col1, col2, col3 = st.columns(3)
+            if checker_for_no_img == 0:
+                st.header("Add an Image")
+            shoes_user_input(col2)
             with col1:
                 if uploaded_file is not None:
                     image = Image.open(uploaded_file)
@@ -457,9 +463,9 @@ else:
     #User Input
     with st.container():
         col1,col2,col3 = st.columns(3)
+        shirts_user_input(col1)
         shoes_user_input(col2)
         pants_user_input(col3)
-        shirts_user_input(col1)
     # with st.container():
     #     col1, col2, col3 = st.columns(3)
     #     with col1:
