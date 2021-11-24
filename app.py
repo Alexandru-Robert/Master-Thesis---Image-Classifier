@@ -451,10 +451,9 @@ else:
             optionShirts = st.multiselect(
             'Shirt model in the picture:',
             ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'])
-
-if optionShoes in running:
-     st.write(optionShoes)
-     imageTags = optionShoes
+    if optionShoes in running:
+        st.write(optionShoes)
+        imageTags = optionShoes
 #else:
     #st.write('nothing')
 
