@@ -453,12 +453,7 @@ def upload(file, **options):
 
 
 
-cloudinary.uploader.upload(image, 
-  folder = "v1637753502/SampleImages/Golf/", 
-  #public_id = "my_dog",
-  #overwrite = true, 
-  #notification_url = "https://mysite.example.com/notify_endpoint", 
-  resource_type = "image")
+
 
 if st.button('SUBMIT'):
     st.write('The image is being uploaded to the cloud wth the corrected classification')
@@ -466,4 +461,9 @@ if st.button('SUBMIT'):
     with BytesIO() as buf:
         image.save(buf, 'jpeg')
         image_bytes = buf.getvalue()
-    cloudinary.uploader.upload(image_bytes)
+    cloudinary.uploader.upload(image_bytes, 
+    folder = "v1637753502/SampleImages/Golf/", 
+    #public_id = "my_dog",
+    #overwrite = true, 
+    #notification_url = "https://mysite.example.com/notify_endpoint", 
+    resource_type = "image")
