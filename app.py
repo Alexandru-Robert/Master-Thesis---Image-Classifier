@@ -210,8 +210,9 @@ if smsb == "Single Product":
                 index = labelint + 1
                 )
                 #st.write('You selected:', options)
-                st.write(optionSingleShoes)
-                if optionSingleShoes in running:
+                #st.write(optionSingleShoes)
+
+                if st.optionSingleShoes in running:
                     imageTags = optionSingleShoes
                     imageTitle = 'Running'
                 elif optionSingleShoes in outdoor:
