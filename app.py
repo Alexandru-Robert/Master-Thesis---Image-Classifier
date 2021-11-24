@@ -43,7 +43,7 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 #      st.write("filename:", uploaded_file.name)
 #      st.write(bytes_data)
 
-CLOUDINARY_URL = cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata
+CLOUDINARY_URL = 'cloudinary://461531742435772:shF0nm0r22IFe3wFXAKynxIr82s@stibodata'
 
 cloudinary.config( 
   cloud_name = "stibodata", 
