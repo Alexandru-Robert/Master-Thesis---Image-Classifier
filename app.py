@@ -280,7 +280,7 @@ if smsb == "Single Product":
         with st.container():
             col1, col2, col3 = st.columns(3)
             if checker_for_no_img == 0:
-                st.header("Add an Image")
+                st.header("Add an Images")
             shoes_user_input(col2)
             with col1:
                 if uploaded_file is not None:
