@@ -63,6 +63,10 @@ running = ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','
 outdoor = ['Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue','FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke']
 golf = ['ZG21','Adicross Retro','Adic XZ Prime Blue','Ultimate 365 Tapered','Ultimate 365 Core Shorts','Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen']
 
+imageTags = []
+imageTitle = ''
+imageDescription = ''
+
 def shoes_accuracy():
     shoes_model = load_model('Shoes_keras_model.h5')
     # Create the array of the right shape to feed into the keras model
@@ -203,6 +207,27 @@ if smsb == "Single Product":
                 index = labelint + 1
                 )
                 #st.write('You selected:', options)
+                if optionSingleShoes in running:
+                    imageTags = optionSingleShoes
+                    imageTitle = 'Running'
+
+                elif optionSingleShoes in outdoor:
+                    imageTags = optionSingleShoes
+                    imageTitle = 'Outdoor'
+
+                elif optionSingleShoes in golf:
+                    imageTags = optionSingleShoes
+                    imageTitle = 'Golf'
+
+                else:
+                    imageTags +=  'Unknown'
+                    imageTitle = 'Unknown'
+                    imageDescription ='Must be Classified, class not found' 
+                    st.write('The selected tag is not available')
+
+
+
+
     elif csb == "Pants/Shorts":
         if uploaded_file is not None:
             with st.container():
@@ -249,6 +274,7 @@ if smsb == "Single Product":
                 ['Unknown','4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'],
                 index= labelint + 1
                 )
+                if optionSinglePants in 
     else:
         if uploaded_file is not None:
             with st.container():
@@ -423,8 +449,9 @@ else:
             ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'])
 
 
-# if optionShoes in running:
-#     st.write('Running picture')
+ if optionShoes in running:
+     st.write(optionShoes)
+     imageTags = optionShoes
 #else:
     #st.write('nothing')
 
