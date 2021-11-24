@@ -463,8 +463,8 @@ if st.button('SUBMIT'):
         image_bytes = buf.getvalue()
     cloudinary.uploader.upload(image_bytes, 
     folder = "SampleImages/" + imageTags +"/", 
-    public_id = imageTitle+randomID,
+    public_id = imageTitle+str(randomID),
     #overwrite = true, 
     #notification_url = "https://mysite.example.com/notify_endpoint", 
     resource_type = "image")
-    cloudinary.uploader.add_tag(imageTitle+randomID, ['dog', 'lion'])
+    cloudinary.uploader.add_tag(imageTitle+str(randomID), ['dog', 'lion'])
