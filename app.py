@@ -146,6 +146,109 @@ output_label_shoes = ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultra
 output_label_pants = ['4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts']
 output_label_shirts = ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen']
 
+def shirts_user_input(x):
+    with st.container():
+        col1, col2, col3 = st.columns(3)
+        with x:
+            if uploaded_file is not None:
+                image = Image.open(uploaded_file)
+                label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
+                st.header("Shirts")
+                labelint = label.item()
+                optionSingleShirts = st.selectbox(
+                        'What Shirt model is in the picture?',
+                        ['Unknown','SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'],
+                        index= labelint +1
+                        )
+                if optionSingleShirts in running:
+                    imageTags = 'Running' #+ optionSingleShirs
+                    imageTitle = optionSingleShirts
+                elif optionSingleShirts in outdoor:
+                    imageTitle = optionSingleShirts
+                    imageTags = 'Outdoor' #+ optionSingleShoes
+                elif optionSingleShirts in golf:
+                    imageTitle = optionSingleShirts
+                    imageTags = 'Golf' #+ optionSingleShoes
+                else:
+                    imageTags =  'Unknown'
+                    imageTitle = 'Unknown'
+                    imageDescription ='Must be Classified, class not found' 
+                    st.write('The selected class is not available')
+                #st.write(imageTitle)
+                #st.write(imageTags)
+            else:
+                st.header("Add an Image")
+            #st.write('You selected:', options)
+            # st.write(optionSingleShoes)
+
+def shoes_user_input():
+    with st.container():
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            if uploaded_file is not None:
+                image = Image.open(uploaded_file)
+                label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+                labelint = label.item()
+                st.header("Shoes")
+                optionSingleShoes = st.selectbox(
+                'What shoes model is in the picture?',
+                ['Unknown','RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'],
+                index = labelint + 1)                    
+                if optionSingleShoes in running:
+                    imageTags = 'Running' #+ optionSingleShoes
+                    imageTitle = optionSingleShoes
+                elif optionSingleShoes in outdoor:
+                    imageTitle = optionSingleShoes
+                    imageTags = 'Outdoor' #+ optionSingleShoes
+                elif optionSingleShoes in golf:
+                    imageTitle = optionSingleShoes
+                    imageTags = 'Golf' #+ optionSingleShoes
+                else:
+                    imageTags =  'Unknown'
+                    imageTitle = 'Unknown'
+                    imageDescription ='Must be Classified, class not found' 
+                    st.write('The selected class is not available')
+                #st.write(imageTags)
+                #st.write(imageTitle)
+            else:
+                st.header("Add an Image")
+                #st.write('You selected:', options)
+                # st.write(optionSingleShoes)
+
+def pants_user_input():
+    with st.container():
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            if uploaded_file is not None:
+                image = Image.open(uploaded_file)
+                label = teachable_machine_classification(image, 'Pants_keras_model.h5')
+                labelint = label.item()
+                st.header("Pants/Shorts")
+                optionSinglePants = st.selectbox(
+                    'What Pants/Shorts model is in the picture?',
+                    ['Unknown','4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'],
+                    index= labelint + 1)
+                if optionSinglePants in running:
+                    imageTags = 'Running' #+ optionSinglePants
+                    imageTitle = optionSinglePants
+                elif optionSinglePants in outdoor:
+                    imageTitle = optionSinglePants
+                    imageTags = 'Outdoor' #+ optionSingleShoes
+                elif optionSinglePants in golf:
+                    imageTitle = optionSinglePants
+                    imageTags = 'Golf' #+ optionSingleShoes
+                else:
+                    imageTags =  'Unknown'
+                    imageTitle = 'Unknown'
+                    imageDescription ='Must be Classified, class not found' 
+                    st.write('The selected class is not available')
+                #st.write(imageTags)
+                #st.write(imageTitle)
+            else:
+                st.header("Add an Image")
+            #st.write('You selected:', options)
+            # st.write(optionSingleShoes)
+
 
 if smsb == "Single Product":
     csb= st.sidebar.selectbox("What category does the product belong to?",("Shoes", "Pants/Shorts", "Shirts"))
@@ -183,28 +286,26 @@ if smsb == "Single Product":
                     index = labelint + 1
                     )                    
                     if optionSingleShoes in running:
-                        imageTags = 'Running' + optionSingleShoes
+                        imageTags = 'Running' #+ optionSingleShoes
                         imageTitle = optionSingleShoes
                     elif optionSingleShoes in outdoor:
                         imageTitle = optionSingleShoes
-                        imageTags = 'Outdoor' + optionSingleShoes
+                        imageTags = 'Outdoor' #+ optionSingleShoes
                     elif optionSingleShoes in golf:
                         imageTitle = optionSingleShoes
-                        imageTags = 'Golf' 
-                        imageTags += optionSingleShoes
+                        imageTags = 'Golf' #+ optionSingleShoes
                     else:
                         imageTags =  'Unknown'
                         imageTitle = 'Unknown'
                         imageDescription ='Must be Classified, class not found' 
                         st.write('The selected class is not available')
-                    st.write(imageTags)
-                    st.write(imageTitle)
+                    #st.write(imageTags)
+                    #st.write(imageTitle)
                 else:
                     st.header("Add an Image")
 
                 #st.write('You selected:', options)
                 # st.write(optionSingleShoes)
-
     elif csb == "Pants/Shorts":
         if uploaded_file is not None:
             with st.container():
@@ -228,14 +329,36 @@ if smsb == "Single Product":
         with st.container():
             col1, col2, col3 = st.columns(3)
             with col1:
-                st.header("Pants/Shorts")
-                labelint = label.item()
-                optionSinglePants = st.selectbox(
-                'What Pants/Shorts model is in the picture?',
-                ['Unknown','4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'],
-                index= labelint + 1
-                )
-                #if optionSinglePants in 
+                if uploaded_file is not None:
+                    image = Image.open(uploaded_file)
+                    label = teachable_machine_classification(image, 'Pants_keras_model.h5')
+                    labelint = label.item()
+                    st.header("Pants/Shorts")
+                    optionSinglePants = st.selectbox(
+                    'What Pants/Shorts model is in the picture?',
+                    ['Unknown','4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'],
+                    index= labelint + 1
+                    )
+                    if optionSinglePants in running:
+                        imageTags = 'Running' #+ optionSinglePants
+                        imageTitle = optionSinglePants
+                    elif optionSinglePants in outdoor:
+                        imageTitle = optionSinglePants
+                        imageTags = 'Outdoor' #+ optionSingleShoes
+                    elif optionSinglePants in golf:
+                        imageTitle = optionSinglePants
+                        imageTags = 'Golf' #+ optionSingleShoes
+                    else:
+                        imageTags =  'Unknown'
+                        imageTitle = 'Unknown'
+                        imageDescription ='Must be Classified, class not found' 
+                        st.write('The selected class is not available')
+                    #st.write(imageTags)
+                    #st.write(imageTitle)
+                else:
+                    st.header("Add an Image")
+                #st.write('You selected:', options)
+                # st.write(optionSingleShoes)
     else:
         if uploaded_file is not None:
             with st.container():
@@ -259,14 +382,36 @@ if smsb == "Single Product":
         with st.container():
             col1, col2, col3 = st.columns(3)
             with col1:
-                st.header("Shirts")
-                labelint = label.item()
-                optionSingleShirts = st.selectbox(
-                'What Shirt model is in the picture?',
-                ['Unknown','SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'],
-                index= labelint +1
-                )
-
+                if uploaded_file is not None:
+                    image = Image.open(uploaded_file)
+                    label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
+                    st.header("Shirts")
+                    labelint = label.item()
+                    optionSingleShirts = st.selectbox(
+                    'What Shirt model is in the picture?',
+                    ['Unknown','SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'],
+                    index= labelint +1
+                    )
+                    if optionSingleShirts in running:
+                        imageTags = 'Running' #+ optionSingleShirs
+                        imageTitle = optionSingleShirts
+                    elif optionSingleShirts in outdoor:
+                        imageTitle = optionSingleShirts
+                        imageTags = 'Outdoor' #+ optionSingleShoes
+                    elif optionSingleShirts in golf:
+                        imageTitle = optionSingleShirts
+                        imageTags = 'Golf' #+ optionSingleShoes
+                    else:
+                        imageTags =  'Unknown'
+                        imageTitle = 'Unknown'
+                        imageDescription ='Must be Classified, class not found' 
+                        st.write('The selected class is not available')
+                    #st.write(imageTags)
+                    #st.write(imageTitle)
+                else:
+                    st.header("Add an Image")
+                #st.write('You selected:', options)
+                # st.write(optionSingleShoes)
 else:
     if uploaded_file is not None:
         with st.container():
@@ -276,7 +421,7 @@ else:
                 st.image(image, width=200 ,caption='Uploaded Product image.')            
         st.write("")
         st.write("Classifying...")
-        #SHOES
+        #SHOES LABEL & ACC
         with st.container():
             col1, col2, col3 = st.columns(3)
             #OUTPUT LABEL OF SHOES
@@ -286,7 +431,7 @@ else:
             #CONFIDENCE LEVEL OF SHOES
             with col2:
                 shoes_accuracy()    
-        #PANTS
+        #PANTS LABEL & ACC
         with st.container():
             col1, col2, col3 = st.columns(3)
             #OUTPUT LABEL OF PANTS    
@@ -296,7 +441,7 @@ else:
             #CONFIDENCE LEVEL OF PANTS    
             with col2:
                 pants_accuracy()
-        #SHIRTS
+        #SHIRTS LABEL & ACC
         with st.container():
             col1, col2, col3 = st.columns(3)
             #OUTPUT LABEL OF SHIRTS
@@ -308,40 +453,68 @@ else:
                 shirts_accuracy()
 
     #User Input
-    with st.container():
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.header("Shoes")
-            optionShoes = st.multiselect(
-            'Shoes model in the picture:',
-            ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'])
-            #st.write('You selected:', options)
-        with col2:
-            st.header("Pants/Shorts")
-            optionPants = st.multiselect(
-            'Pants/Shorts model in the picture:',
-            ['4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'])
-        with col3:
-            st.header("Shirts")
-            optionShirts = st.multiselect(
-            'Shirt model in the picture:',
-            ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'])
-        if optionShoes in running:
-            imageTags = 'Running'
-            imageTitle = optionShoes
-        elif optionShoes in outdoor:
-            imageTitle = optionShoes
-            imageTags = 'Outdoor'
-        elif optionShoes in golf:
-            imageTitle = optionShoes
-            imageTags = 'Golf'
-        else:
-            imageTags =  'Unknown'
-            imageTitle = 'Unknown'
-            imageDescription ='Must be Classified, class not found' 
-            st.write('The selected class is not available')
-        st.write(imageTags)
-        st.write(imageTitle)
+    shirts_user_input(col2)
+    # with st.container():
+    #     col1, col2, col3 = st.columns(3)
+    #     with col1:
+    #         if uploaded_file is not None:
+    #             image = Image.open(uploaded_file)
+    #             label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
+    #             st.header("Shirts")
+    #             labelint = label.item()
+    #             optionSingleShirts = st.selectbox(
+    #             'What Shirt model is in the picture?',
+    #             ['Unknown','SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'],
+    #             index= labelint +1)
+    #             if optionSingleShirts in running:
+    #                 imageTags = 'Running' #+ optionSingleShirs
+    #                 imageTitle = optionSingleShirts
+    #             elif optionSingleShirts in outdoor:
+    #                 imageTitle = optionSingleShirts
+    #                 imageTags = 'Outdoor' #+ optionSingleShoes
+    #             elif optionSingleShirts in golf:
+    #                 imageTitle = optionSingleShirts
+    #                 imageTags = 'Golf' #+ optionSingleShoes
+    #             else:
+    #                 imageTags =  'Unknown'
+    #                 imageTitle = 'Unknown'
+    #                 imageDescription ='Must be Classified, class not found' 
+    #                 st.write('The selected class is not available')
+    #             #st.write(imageTags)
+    #             #st.write(imageTitle)
+    #         else:
+    #             st.header("Add an Image")
+    #         #st.write('You selected:', options)
+    #         # st.write(optionSingleShoes)
+    #     with col2:
+    #         st.header("Pants/Shorts")
+    #         optionPants = st.multiselect(
+    #         'Pants/Shorts model in the picture:',
+    #         ['4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'])
+    #     with col3:
+    #         st.header("Shirts")
+    #         optionShirts = st.multiselect(
+    #         'Shirt model in the picture:',
+    #         ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'])
+    #     if optionShoes in running:
+    #         imageTags = 'Running'
+    #         imageTitle = optionShoes
+    #     elif optionShoes in outdoor:
+    #         imageTitle = optionShoes
+    #         imageTags = 'Outdoor'
+    #     elif optionShoes in golf:
+    #         imageTitle = optionShoes
+    #         imageTags = 'Golf'
+    #     else:
+    #         imageTags =  'Unknown'
+    #         imageTitle = 'Unknown'
+    #         imageDescription ='Must be Classified, class not found' 
+    #         st.write('The selected class is not available')
+    #     st.write(imageTags)
+    #     st.write(imageTitle)
+
+
+        
     # else:
     #     st.header("Add an Image")
     #else:
