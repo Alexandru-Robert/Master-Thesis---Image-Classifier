@@ -197,10 +197,11 @@ if smsb == "Single Product":
         with st.container():
             col1, col2, col3 = st.columns(3)
             with col1:
-                image = Image.open(uploaded_file)
-                label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+                if uploaded_file is not None:
+                    image = Image.open(uploaded_file)
+                    label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+                    labelint = label.item()
                 st.header("Shoes")
-                labelint = label.item()
                 optionSingleShoes = st.selectbox(
                 'What shoes model is in the picture?',
                 ['Unknown','RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'],
