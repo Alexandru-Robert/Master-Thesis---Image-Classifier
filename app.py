@@ -193,6 +193,7 @@ if smsb == "Single Product":
         with st.container():
             col1, col2, col3 = st.columns(3)
             with col1:
+                label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
                 st.header("Shoes")
                 labelint = label.item()
                 optionSingleShoes = st.selectbox(
@@ -240,7 +241,6 @@ if smsb == "Single Product":
         with st.container():
             col1, col2, col3 = st.columns(3)
             with col1:
-                label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
                 st.header("Pants/Shorts")
                 labelint = label.item()
                 optionSinglePants = st.selectbox(
