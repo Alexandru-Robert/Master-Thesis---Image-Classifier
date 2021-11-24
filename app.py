@@ -202,7 +202,7 @@ if smsb == "Single Product":
                     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
                     labelint = label.item()
                 else:
-                    labelint = 0
+                    labelint = -1
                 st.header("Shoes")
                 optionSingleShoes = st.selectbox(
                 'What shoes model is in the picture?',
@@ -211,20 +211,20 @@ if smsb == "Single Product":
                 )
                 #st.write('You selected:', options)
                 st.write(optionSingleShoes)
-            if optionSingleShoes in running:
-                imageTags = optionSingleShoes
-                imageTitle = 'Running'
-            elif optionSingleShoes in outdoor:
-                imageTags = optionSingleShoes
-                imageTitle = 'Outdoor'
-            elif optionSingleShoes in golf:
-                imageTags = optionSingleShoes
-                imageTitle = 'Golf'
-            else:
-                imageTags +=  'Unknown'
-                imageTitle = 'Unknown'
-                imageDescription ='Must be Classified, class not found' 
-                st.write('The selected tag is not available')
+                if optionSingleShoes in running:
+                    imageTags = optionSingleShoes
+                    imageTitle = 'Running'
+                elif optionSingleShoes in outdoor:
+                    imageTags = optionSingleShoes
+                    imageTitle = 'Outdoor'
+                elif optionSingleShoes in golf:
+                    imageTags = optionSingleShoes
+                    imageTitle = 'Golf'
+                else:
+                    imageTags +=  'Unknown'
+                    imageTitle = 'Unknown'
+                    imageDescription ='Must be Classified, class not found' 
+                    st.write('The selected tag is not available')
 
 
 
