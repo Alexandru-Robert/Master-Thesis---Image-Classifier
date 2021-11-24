@@ -405,6 +405,11 @@ else:
 
 randomID = random.randint(0, 999999)
 #st.write(randomID)
+
+#ADD IF IMAGE VISIBLE THEN SHOW BUTTON
+#SEE IF DELAYS CAN BE FIXED
+#TRY TO MAKE THE APP NOT REFRESH WHEN UPDATING FIELDS OR UPLOADING
+
 if smsb == "Single Product":
     if st.button('SUBMIT'):
         st.write('The image is being uploaded to the cloud wth the corrected classification')
