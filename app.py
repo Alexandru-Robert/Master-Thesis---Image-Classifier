@@ -191,7 +191,6 @@ if smsb == "Single Product":
             with col1:
                 st.header("Shoes")
                 labelint = label.item()
-                st.write(labelint)
                 options = st.selectbox(
                 'What shoes model is in the picture?',
                 ['Unknown','RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'],
@@ -238,9 +237,12 @@ if smsb == "Single Product":
             col1, col2, col3 = st.columns(3)
             with col1:
                 st.header("Pants/Shorts")
-                options = st.multiselect(
+                labelint = label.item()
+                options = st.selectbox(
                 'What Pants/Shorts model is in the picture?',
-                ['4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'])
+                ['Unknown','4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'],
+                index= labelint + 1
+                )
     else:
         if uploaded_file is not None:
             with st.container():
@@ -287,9 +289,12 @@ if smsb == "Single Product":
             col1, col2, col3 = st.columns(3)
             with col1:
                 st.header("Shirts")
-                options = st.multiselect(
+                labelint = label.item()
+                options = st.selectbox(
                 'What Shirt model is in the picture?',
-                ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'])
+                ['Unknown','SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'],
+                index= labelint +1
+                )
 
 else:
     if uploaded_file is not None:
