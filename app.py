@@ -462,6 +462,7 @@ if st.button('SUBMIT'):
 # To read file as bytes: ... 
     bytes_data = uploaded_file.getvalue() 
     #st.write(bytes_data)
+    contents = uploaded_file.decode('utf-8', 'ignore')
 
 # To convert to a string based IO: 
     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
