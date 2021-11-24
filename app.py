@@ -379,15 +379,15 @@ else:
         shoes_user_input(col1)
         pants_user_input(col2)
         shirts_user_input(col3)
-        st.write(imageTags)
-        st.write(imageTitle)        
+        #st.write(imageTags)
+        #st.write(imageTitle)        
 
-        st.write(Counter(imageTags))
+        #st.write(Counter(imageTags))
 
         imageTagsUnique = list(set(imageTags))
-        st.write(imageTitle+imageTagsUnique)
+        tags = imageTitle+imageTagsUnique
 
-        st.write(imageTags.count("Outdoor"))
+        #st.write(imageTags.count("Outdoor"))
         if imageTags.count("Outdoor")>1:
             imageTags = 'Outdoor'
         elif imageTags.count("Golf")>1:
@@ -428,7 +428,7 @@ else:
             image_bytes = buf.getvalue()
         cloudinary.uploader.upload(image_bytes, 
         folder = "SampleImages/" + imageTags +"/", 
-        tags = imageTitle+imageTags,
+        tags = tags,
         #next line skipped as if we are to add all products, the picture will not have all products in the title
         #public_id = imageTags+str(randomID),
         caption = str(imageTitle)
