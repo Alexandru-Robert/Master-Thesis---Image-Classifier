@@ -223,7 +223,7 @@ if smsb == "Single Product":
                     imageTags = optionSingleShoes
                     imageTitle = 'Golf'
                 else:
-                    imageTags +=  'Unknown'
+                    imageTags =  'Unknown'
                     imageTitle = 'Unknown'
                     imageDescription ='Must be Classified, class not found' 
                     st.write('The selected tag is not available')
