@@ -53,13 +53,6 @@ cloudinary.config(
   #secure = true
 )
 
-# cloudinary.uploader.upload("dog.mp4", 
-#   folder = "myfolder/mysubfolder/", 
-#   public_id = "my_dog",
-#   overwrite = true, 
-#   notification_url = "https://mysite.example.com/notify_endpoint", 
-#   resource_type = "video")
-
 running = ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','4KRFT', 'Aerostripes 3 slim','SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner']
 outdoor = ['Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue','FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke']
 golf = ['ZG21','Adicross Retro','Adic XZ Prime Blue','Ultimate 365 Tapered','Ultimate 365 Core Shorts','Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen']
@@ -460,7 +453,12 @@ def upload(file, **options):
 
 
 
-
+cloudinary.uploader.upload(Image, 
+  folder = "myfolder/mysubfolder/", 
+  public_id = "my_dog",
+  overwrite = true, 
+  notification_url = "https://mysite.example.com/notify_endpoint", 
+  resource_type = "video")
 
 if st.button('SUBMIT'):
     st.write('The image is being uploaded to the cloud wth the corrected classification')
