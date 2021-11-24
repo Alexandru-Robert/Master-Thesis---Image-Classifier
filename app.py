@@ -384,6 +384,15 @@ else:
 
         st.write(Counter(imageTags))
         st.write(imageTags.count("Outdoor"))
+        if imageTags.count("Outdoor")>1:
+            imageTags = 'Outdoor'
+        elif imageTags.count("Golf")>1:
+            imageTags = 'Golf'
+        elif imageTags.count("Running")>1:
+            imageTags = 'Running'
+        else:
+            imageTags = 'Unknown'        
+        st.write(imageTags)
 
 # def upload(file, **options):
 #     st.write('')
