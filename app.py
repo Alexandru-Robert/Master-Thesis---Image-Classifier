@@ -181,10 +181,10 @@ def shirts_user_input(x):
             #st.write('You selected:', options)
             # st.write(optionSingleShoes)
 
-def shoes_user_input(x):
+def shoes_user_input(y):
     with st.container():
         col1, col2, col3 = st.columns(3)
-        with x:
+        with y:
             if uploaded_file is not None:
                 image = Image.open(uploaded_file)
                 label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
@@ -215,10 +215,10 @@ def shoes_user_input(x):
                 #st.write('You selected:', options)
                 # st.write(optionSingleShoes)
 
-def pants_user_input(x):
+def pants_user_input(z):
     with st.container():
         col1, col2, col3 = st.columns(3)
-        with x:
+        with z:
             if uploaded_file is not None:
                 image = Image.open(uploaded_file)
                 label = teachable_machine_classification(image, 'Pants_keras_model.h5')
