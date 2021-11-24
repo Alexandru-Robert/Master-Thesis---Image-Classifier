@@ -207,20 +207,21 @@ if smsb == "Single Product":
                 index = labelint + 1
                 )
                 #st.write('You selected:', options)
-                if optionSingleShoes in running:
-                    imageTags = optionSingleShoes
-                    imageTitle = 'Running'
-                elif optionSingleShoes in outdoor:
-                    imageTags = optionSingleShoes
-                    imageTitle = 'Outdoor'
-                elif optionSingleShoes in golf:
-                    imageTags = optionSingleShoes
-                    imageTitle = 'Golf'
-                else:
-                    imageTags +=  'Unknown'
-                    imageTitle = 'Unknown'
-                    imageDescription ='Must be Classified, class not found' 
-                    st.write('The selected tag is not available')
+                st.write(optionSingleShoes)
+                # if optionSingleShoes in running:
+                #     imageTags = optionSingleShoes
+                #     imageTitle = 'Running'
+                # elif optionSingleShoes in outdoor:
+                #     imageTags = optionSingleShoes
+                #     imageTitle = 'Outdoor'
+                # elif optionSingleShoes in golf:
+                #     imageTags = optionSingleShoes
+                #     imageTitle = 'Golf'
+                # else:
+                #     imageTags +=  'Unknown'
+                #     imageTitle = 'Unknown'
+                #     imageDescription ='Must be Classified, class not found' 
+                #     st.write('The selected tag is not available')
 
 
 
