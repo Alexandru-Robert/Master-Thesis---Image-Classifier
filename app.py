@@ -425,7 +425,7 @@ else:
 
 if optionShoes in running:
     st.write('Running picture')
-else:
+#else:
     #st.write('nothing')
 
 def upload(file, **options):
