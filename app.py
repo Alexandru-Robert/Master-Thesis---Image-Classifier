@@ -62,7 +62,6 @@ uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 running = ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','4KRFT', 'Aerostripes 3 slim','SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner']
 outdoor = ['Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue','FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke']
 golf = ['ZG21','Adicross Retro','Adic XZ Prime Blue','Ultimate 365 Tapered','Ultimate 365 Core Shorts','Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen']
-unknown = 'Unknown'
 
 imageTags = []
 imageTitle = ''
@@ -202,13 +201,16 @@ if smsb == "Single Product":
                     image = Image.open(uploaded_file)
                     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
                     labelint = label.item()
+                    optionSingleShoes = st.selectbox(
+                    'What shoes model is in the picture?',
+                    ['Unknown','RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'],
+                    index = labelint + 1
+                    )
                 else:
-                    labelint = -1
                 st.header("Shoes")
                 optionSingleShoes = st.selectbox(
                 'What shoes model is in the picture?',
-                ['Unknown','RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue'],
-                index = labelint + 1
+                ['Unknown','RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue']
                 )
                 #st.write('You selected:', options)
                 st.write(optionSingleShoes)
@@ -222,7 +224,7 @@ if smsb == "Single Product":
                 elif optionSingleShoes in golf:
                     imageTags = optionSingleShoes
                     imageTitle = 'Golf'
-                elif optionSingleShoes  == 'Unknown':
+                else:
                     imageTags =  'Unknown'
                     imageTitle = 'Unknown'
                     imageDescription ='Must be Classified, class not found' 
@@ -454,7 +456,7 @@ else:
     if optionShoes in running:
         st.write(optionShoes)
         imageTags = optionShoes
-#else:
+    #else:
     #st.write('nothing')
 
 def upload(file, **options):
