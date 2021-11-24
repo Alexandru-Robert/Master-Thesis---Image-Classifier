@@ -59,7 +59,7 @@ running = ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','
 outdoor = ['Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue','FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke']
 golf = ['ZG21','Adicross Retro','Adic XZ Prime Blue','Ultimate 365 Tapered','Ultimate 365 Core Shorts','Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen']
 
-imageTags = ''
+imageTags = []
 imageTitle = []
 imageDescription = ''
 
@@ -141,6 +141,7 @@ def shirts_accuracy():
 #need to see how to do if single product image is uploaded. Now it classifies for all classes
 smsb = st.sidebar.selectbox("What type of pictures are there going to be added? Single product or multiple product?",("Multiple product","Single Product"))
 
+#LABELS
 output_label_shoes = ['RunFalcon 2.0', 'Supernova', 'Ultraboost 5.0 DNA', 'Ultraboost 21','X9000 L3','ZG21','Adicross Retro','Adic XZ Prime Blue', 'Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime Blue']
 output_label_pants = ['4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts']
 output_label_shirts = ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen']
@@ -182,14 +183,14 @@ if smsb == "Single Product":
                     index = labelint + 1
                     )                    
                     if optionSingleShoes in running:
-                        imageTags = 'Running'
+                        imageTags = 'Running' + optionSingleShoes
                         imageTitle = optionSingleShoes
                     elif optionSingleShoes in outdoor:
                         imageTitle = optionSingleShoes
-                        imageTags = 'Outdoor'
+                        imageTags = 'Outdoor' + optionSingleShoes
                     elif optionSingleShoes in golf:
                         imageTitle = optionSingleShoes
-                        imageTags = 'Golf'
+                        imageTags = 'Golf' + optionSingleShoes
                     else:
                         imageTags =  'Unknown'
                         imageTitle = 'Unknown'
