@@ -9,7 +9,8 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 from io import BytesIO, StringIO
-from random import random, uniform
+from random import random
+import random
 
 st.set_page_config(page_title="MasterThesis", page_icon=None,layout='centered', initial_sidebar_state='auto')
 # favicon being an object of the same kind as the one you should provide st.image() with (ie. a PIL array for example) or a string (url or local file path)
