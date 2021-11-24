@@ -201,6 +201,8 @@ if smsb == "Single Product":
                     image = Image.open(uploaded_file)
                     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
                     labelint = label.item()
+                else:
+                    labelint = 0
                 st.header("Shoes")
                 optionSingleShoes = st.selectbox(
                 'What shoes model is in the picture?',
