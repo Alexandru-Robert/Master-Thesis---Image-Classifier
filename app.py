@@ -467,4 +467,4 @@ if st.button('SUBMIT'):
     #overwrite = true, 
     #notification_url = "https://mysite.example.com/notify_endpoint", 
     resource_type = "image")
-    cloudinary.uploader.add_tag(imageTitle+str(randomID), ['dog', 'lion'])
+    cloudinary.uploader.add_tag(imageTags, imageTitle+str(randomID))
