@@ -161,7 +161,7 @@ if smsb == "Single Product":
                 #OUTPUT LABEL OF SHOES
                 with col1:
                     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
-                    st.write(output.index([label]))
+                    st.write(output[label])
                     st.write(label)
                     if label == 0:
                         st.write("RunFalcon 2.0")
