@@ -385,13 +385,13 @@ else:
         st.write(Counter(imageTags))
         st.write(imageTags.count("Outdoor"))
         if imageTags.count("Outdoor")>1:
-            imageTags = 'Outdoor'
+            imageTags = ['Outdoor']
         elif imageTags.count("Golf")>1:
-            imageTags = 'Golf'
+            imageTags = ['Golf']
         elif imageTags.count("Running")>1:
-            imageTags = 'Running'
+            imageTags = ['Running']
         else:
-            imageTags = 'Unknown'        
+            imageTags = ['Unknown']        
         st.write(imageTags)
 
 st.write(imageTitle+imageTags)
