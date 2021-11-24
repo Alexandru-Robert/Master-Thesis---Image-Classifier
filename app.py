@@ -174,8 +174,8 @@ def shirts_user_input(x):
                     imageTitle += [optionSingleShirts]
                     imageTags += ['Golf'] #+ optionSingleShoes
                 else:
-                    imageTags +=  'Unknown'
-                    imageTitle += 'Unknown'
+                    imageTags +=  ['Unknown']
+                    imageTitle += ['Unknown']
                     imageDescription ='Must be Classified, class not found' 
                     st.write('The selected shirt class is not available')
                 #st.write(imageTitle)
@@ -212,8 +212,8 @@ def shoes_user_input(y):
                     imageTitle += [optionSingleShoes]
                     imageTags += ['Golf'] #+ optionSingleShoes
                 else:
-                    imageTags +=  'Unknown'
-                    imageTitle += 'Unknown'
+                    imageTags +=  ['Unknown']
+                    imageTitle += ['Unknown']
                     imageDescription += 'Must be Classified, class not found' 
                     st.write('The selected shoe class is not available')
                 #st.write(imageTags)
@@ -241,17 +241,17 @@ def pants_user_input(z):
                     ['Unknown','4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'],
                     index= labelint + 1)
                 if optionSinglePants in running:
-                    imageTags += 'Running' #+ optionSinglePants
-                    imageTitle += optionSinglePants
+                    imageTags += ['Running'] #+ optionSinglePants
+                    imageTitle += [optionSinglePants]
                 elif optionSinglePants in outdoor:
-                    imageTitle += optionSinglePants
-                    imageTags += 'Outdoor' #+ optionSingleShoes
+                    imageTitle += [optionSinglePants]
+                    imageTags += ['Outdoor'] #+ optionSingleShoes
                 elif optionSinglePants in golf:
-                    imageTitle += optionSinglePants
-                    imageTags += 'Golf' #+ optionSingleShoes
+                    imageTitle += [optionSinglePants]
+                    imageTags += ['Golf'] #+ optionSingleShoes
                 else:
-                    imageTags +=  'Unknown'
-                    imageTitle += 'Unknown'
+                    imageTags +=  ['Unknown']
+                    imageTitle += ['Unknown']
                     imageDescription += 'Must be Classified, class not found' 
                     st.write('The selected pants class is not available')
                 #st.write(imageTags)
