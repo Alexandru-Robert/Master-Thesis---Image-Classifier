@@ -444,9 +444,24 @@ else:
             optionShirts = st.multiselect(
             'Shirt model in the picture:',
             ['SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'])
-    if optionShoes in running:
-        st.write(optionShoes)
-        imageTags = optionShoes
+        if optionSingleShoes in running:
+            imageTags = 'Running'
+            imageTitle = optionSingleShoes
+        elif optionSingleShoes in outdoor:
+            imageTitle = optionSingleShoes
+            imageTags = 'Outdoor'
+        elif optionSingleShoes in golf:
+            imageTitle = optionSingleShoes
+            imageTags = 'Golf'
+        else:
+            imageTags =  'Unknown'
+            imageTitle = 'Unknown'
+            imageDescription ='Must be Classified, class not found' 
+            st.write('The selected class is not available')
+        st.write(imageTags)
+        st.write(imageTitle)
+    else:
+        st.header("Add an Image")
     #else:
     #st.write('nothing')
 
