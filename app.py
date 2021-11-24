@@ -383,9 +383,9 @@ else:
         st.write(imageTitle)        
 
         st.write(Counter(imageTags))
-        imageTitle = list(set(imageTags))
 
-        st.write(imageTitle+imageTags)
+        imageTagsUnique = list(set(imageTags))
+        st.write(imageTitle+imageTagsUnique)
 
         st.write(imageTags.count("Outdoor"))
         if imageTags.count("Outdoor")>1:
