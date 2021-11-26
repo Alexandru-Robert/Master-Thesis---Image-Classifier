@@ -416,7 +416,7 @@ if smsb == "Single Product":
             image.save(buf, 'jpeg')
             image_bytes = buf.getvalue()
         cloudinary.uploader.upload(image_bytes, 
-        folder = "SampleImages/" + imageTags +"/", 
+        folder = "SampleImages/" + imPath +"/", 
         tags = imageTags,
         public_id = imageTitle+str(randomID),
         caption = str(imageTitle)
@@ -431,7 +431,7 @@ else:
             image.save(buf, 'jpeg')
             image_bytes = buf.getvalue()
         cloudinary.uploader.upload(image_bytes, 
-        folder = "SampleImages/" + imPath +"/", 
+        folder = "SampleImages/" + imageTags +"/", 
         tags = tags,
         #next line skipped as if we are to add all products, the picture will not have all products in the title
         #public_id = imageTags+str(randomID),
