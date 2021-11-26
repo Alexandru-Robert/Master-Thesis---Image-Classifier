@@ -368,7 +368,7 @@ else:
             with col2:
                 #confidencePerc()
                 #teachable_machine_classification()
-                st.write(label[2], "%")
+                st.write(label[10], "%")
                 #shoes_accuracy()    
         #PANTS LABEL & ACC
         with st.container():
