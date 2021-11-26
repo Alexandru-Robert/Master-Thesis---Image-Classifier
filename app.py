@@ -383,7 +383,7 @@ else:
         #st.write(imageTitle)        
 
         #st.write(Counter(imageTags))
-
+        imPath = imageTags
         imageTagsUnique = list(set(imageTags))
         tags = imageTitle+imageTagsUnique
 
@@ -401,7 +401,6 @@ else:
 
 # def upload(file, **options):
 #     st.write('')
-
 
 randomID = random.randint(0, 999999)
 #st.write(randomID)
@@ -432,7 +431,7 @@ else:
             image.save(buf, 'jpeg')
             image_bytes = buf.getvalue()
         cloudinary.uploader.upload(image_bytes, 
-        folder = "SampleImages/" + imageTags +"/", 
+        folder = "SampleImages/" + imPath +"/", 
         tags = tags,
         #next line skipped as if we are to add all products, the picture will not have all products in the title
         #public_id = imageTags+str(randomID),
