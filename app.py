@@ -66,7 +66,9 @@ imageTags = []
 imPath = []
 imageTitle = []
 imageDescription = ''
-globalLabel = 0
+globalLabelShirts = 0
+globalLabelPants = 0
+globalLabelShoes = 0
 
 def shoes_accuracy():
     shoes_model = load_model('Shoes_keras_model.h5')
@@ -159,11 +161,12 @@ def shirts_user_input(x):
         col1, col2, col3 = st.columns(3)
         with x:
             if uploaded_file is not None:
-                image = Image.open(uploaded_file)
-                label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
+                #image = Image.open(uploaded_file)
+                #label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
+                labelint = globalLabelShirts.item()
                 st.header("Shirts")
                 checker_for_no_img = 1
-                labelint = label.item()
+                #labelint = label.item()
                 optionSingleShirts = st.selectbox(
                         'Shirt model in the picture.',
                         ['Unknown','SportsWear Logo', 'EssentialsEmbroidedLinearLogo', 'OwnTheRun', 'Runner','BSC 3StripesInsulatedJacket', 'MyShelter RegnJakke', 'Terrex Multi Prime Green Full Zip Fleece Jakke', 'Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen'],
@@ -198,9 +201,10 @@ def shoes_user_input(y):
         col1, col2, col3 = st.columns(3)
         with y:
             if uploaded_file is not None:
-                image = Image.open(uploaded_file)
-                label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
-                labelint = label.item()
+                #image = Image.open(uploaded_file)
+                #label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+                #labelint = label.item()
+                labelint = globalLabelShoes.item()
                 checker_for_no_img = 1
                 st.header("Shoes")
                 optionSingleShoes = st.selectbox(
@@ -238,8 +242,8 @@ def pants_user_input(z):
             if uploaded_file is not None:
                 # image = Image.open(uploaded_file)
                 # label = teachable_machine_classification(image, 'Pants_keras_model.h5')
-                labelint = globalLabel.item()
-                st.write(labelint)
+                labelint = globalLabelPants.item()
+                #st.write(labelint)
                 checker_for_no_img = 1
                 st.header("Pants/Shorts")
                 optionSinglePants = st.selectbox(
@@ -354,6 +358,7 @@ else:
             with col1:
                 label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
                 st.write(output_label_shoes[label])
+                globalLabelShoes = label
             #CONFIDENCE LEVEL OF SHOES
             with col2:
                 shoes_accuracy()    
@@ -364,9 +369,8 @@ else:
             with col1:
                 label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
                 st.write(output_label_pants[label])
-
-                globalLabel = label
-                st.write(label)
+                globalLabelPants = label
+                #st.write(label)
             #CONFIDENCE LEVEL OF PANTS    
             with col2:
                 pants_accuracy()
@@ -377,6 +381,7 @@ else:
             with col1:
                 label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
                 st.write(output_label_shirts[label])
+                globalLabelShirts = label
             #CONFIDENCE LEVEL OF SHIRTS
             with col2:
                 shirts_accuracy()
