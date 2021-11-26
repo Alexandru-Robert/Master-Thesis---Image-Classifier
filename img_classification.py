@@ -6,8 +6,7 @@ import streamlit as st
 
 confidence = 0
 
-def confidencePerc():
-    st.write(confidence,"%")
+
 
 def teachable_machine_classification(img, weights_file):
     # Load the model
@@ -36,3 +35,5 @@ def teachable_machine_classification(img, weights_file):
     #st.write(np.argmax(prediction))
     return np.argmax(prediction) # return position of the highest probability
 
+def confidencePerc():
+    st.write(confidence,"%")
