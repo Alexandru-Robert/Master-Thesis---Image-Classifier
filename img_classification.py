@@ -5,6 +5,7 @@ from keras.preprocessing import image
 import streamlit as st
 
 # globalConfidence = 0
+global confidence
 
 def teachable_machine_classification(img, weights_file):
     # Load the model
@@ -28,7 +29,7 @@ def teachable_machine_classification(img, weights_file):
     # run the inference
     prediction = model.predict(data)
     predictionPerc = prediction*100
-    global confidence 
+    #global confidence 
     confidence = np.amax(predictionPerc) 
 
     # confidencePerc(confidence)
