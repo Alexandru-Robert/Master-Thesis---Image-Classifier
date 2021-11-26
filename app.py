@@ -362,6 +362,7 @@ else:
             with col1:
                 label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
                 st.write(output_label_pants[label])
+                st.write(label)
             #CONFIDENCE LEVEL OF PANTS    
             with col2:
                 pants_accuracy()
