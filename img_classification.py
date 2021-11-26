@@ -28,7 +28,8 @@ def teachable_machine_classification(img, weights_file):
     # run the inference
     prediction = model.predict(data)
     predictionPerc = prediction*100
-    global confidence = np.amax(predictionPerc) 
+    global confidence 
+    confidence = np.amax(predictionPerc) 
 
     # confidencePerc(confidence)
     #st.write(np.argmax(prediction))
