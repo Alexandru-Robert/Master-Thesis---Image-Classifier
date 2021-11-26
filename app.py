@@ -384,7 +384,7 @@ else:
         #st.write(imageTitle)        
 
         #st.write(Counter(imageTags))
-        imPath = imageTags
+        imPath += imageTags
         imageTagsUnique = list(set(imageTags))
         tags = imageTitle+imageTagsUnique
 
@@ -403,7 +403,7 @@ else:
 # def upload(file, **options):
 #     st.write('')
 st.write(imageTags)
-st.write(imPath)
+st.write(str(imPath))
 randomID = random.randint(0, 999999)
 #st.write(randomID)
 
