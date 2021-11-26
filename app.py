@@ -239,7 +239,7 @@ def pants_user_input(z):
                 # image = Image.open(uploaded_file)
                 # label = teachable_machine_classification(image, 'Pants_keras_model.h5')
                 labelint = globalLabel
-                st.write(label)
+                st.write(labelint)
                 checker_for_no_img = 1
                 st.header("Pants/Shorts")
                 optionSinglePants = st.selectbox(
