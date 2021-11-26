@@ -36,9 +36,9 @@ def teachable_machine_classification(img, weights_file):
     #st.write(np.argmax(prediction))
     return np.argmax(prediction) # return position of the highest probability
 
-# def confidencePerc(x):
-#     st.write(x,"%")
-#     globalConfidence = x
+def confidencePerc():
+    st.write(confidence,"%")
+    #globalConfidence = x
 
 # def globalConfidenceFct():
 #     st.write(globalConfidence, "%")
