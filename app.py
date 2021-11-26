@@ -238,7 +238,7 @@ def pants_user_input(z):
             if uploaded_file is not None:
                 # image = Image.open(uploaded_file)
                 # label = teachable_machine_classification(image, 'Pants_keras_model.h5')
-                labelint = globalLabel
+                labelint = globalLabel.item()
                 st.write(labelint)
                 checker_for_no_img = 1
                 st.header("Pants/Shorts")
