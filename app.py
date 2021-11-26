@@ -244,7 +244,7 @@ def pants_user_input(z):
                     'Pants/Shorts model in the picture.',
                     ['Unknown','4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'],
                     index= labelint + 1)
-                    st.write(optionSinglePants)
+                st.write(optionSinglePants)
                 if optionSinglePants in running:
                     imageTags += ['Running'] #+ optionSinglePants
                     imageTitle += [optionSinglePants]
