@@ -289,12 +289,13 @@ if smsb == "Single Product":
                 col1, col2, col3 = st.columns(3)
                 #OUTPUT LABEL OF SHOES
                 with col1:
-                    label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+                    output = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+                    label = output[0]
                     globalLabelShoes = label
                     st.write(output_label_shoes[label])
                 #CONFIDENCE LEVEL OF SHOES
                 with col2:
-                    confidencePerc()
+                    st.write(output[1],"%")
                     #shoes_accuracy()            
         #User Input
         with st.container():
@@ -314,12 +315,13 @@ if smsb == "Single Product":
                 col1, col2, col3 = st.columns(3)
                 #OUTPUT LABEL OF PANTS    
                 with col1:
-                    label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
+                    output = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
+                    label = output[0]
                     st.write(output_label_pants[label])
                     globalLabelPants = label
                 #CONFIDENCE LEVEL OF PANTS    
                 with col2:
-                    pants_accuracy()  
+                    st.write(output[1],"%")  
         #User Input
         with st.container():
             col1, col2, col3 = st.columns(3)
@@ -338,12 +340,13 @@ if smsb == "Single Product":
                 col1, col2, col3 = st.columns(3)
                 #OUTPUT LABEL OF SHIRTS
                 with col1:
-                    label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
+                    output = teachable_machine_classification(image, 'Shirts_keras_model.h5')
+                    label = output[0]
                     st.write(output_label_shirts[label])
                     globalLabelShirts = label
                 #CONFIDENCE LEVEL OF SHIRTS
                 with col2:
-                    shirts_accuracy()
+                    st.write(output[1],"%")
         #User Input
         with st.container():
             col1, col2, col3 = st.columns(3)
@@ -362,40 +365,42 @@ else:
             col1, col2, col3 = st.columns(3)
             #OUTPUT LABEL OF SHOES
             with col1:
-                label1 = teachable_machine_classification(image, 'Shoes_keras_model.h5')
-                label = label1[0]
+                output = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+                label = output[0]
                 st.write(output_label_shoes[label])
                 globalLabelShoes = label
             #CONFIDENCE LEVEL OF SHOES
             with col2:
                 #confidencePerc()
                 #teachable_machine_classification()
-                st.write(label1[1])
+                st.write(output[1],"%")
                 #shoes_accuracy()    
         #PANTS LABEL & ACC
         with st.container():
             col1, col2, col3 = st.columns(3)
             #OUTPUT LABEL OF PANTS    
             with col1:
-                label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
+                output = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
+                label = output[0]
                 st.write(output_label_pants[label])
                 globalLabelPants = label
                 #st.write(label)
             #CONFIDENCE LEVEL OF PANTS    
             with col2:
-                confidencePerc()
+                st.write(output[1],"%")
                 #pants_accuracy()
         #SHIRTS LABEL & ACC
         with st.container():
             col1, col2, col3 = st.columns(3)
             #OUTPUT LABEL OF SHIRTS
             with col1:
-                label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
+                output = teachable_machine_classification(image, 'Shirts_keras_model.h5')
+                label = output[0]
                 st.write(output_label_shirts[label])
                 globalLabelShirts = label
             #CONFIDENCE LEVEL OF SHIRTS
             with col2:
-                confidencePerc()
+                st.write(output[1],"%")
                 #shirts_accuracy()
 
     #User Input
