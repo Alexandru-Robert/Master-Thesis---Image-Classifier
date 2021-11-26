@@ -37,4 +37,6 @@ def teachable_machine_classification(img, weights_file):
 def confidencePerc(x):
     st.write(x,"%")
     globalConfidence = x
-    st.write(globalConfidence)
+
+def globalConfidenceFct():
+    st.write(globalConfidence, "%")

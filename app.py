@@ -2,7 +2,7 @@ from PIL import Image
 from keras.models import load_model
 import streamlit as st
 from PIL import Image, ImageOps
-from img_classification import teachable_machine_classification,confidencePerc
+from img_classification import *
 from explore_page import show_explore_page
 import numpy as np
 import cloudinary
@@ -366,7 +366,8 @@ else:
                 globalLabelShoes = label
             #CONFIDENCE LEVEL OF SHOES
             with col2:
-                confidencePerc()
+                #confidencePerc()
+                globalConfidenceFct()
                 #shoes_accuracy()    
         #PANTS LABEL & ACC
         with st.container():
