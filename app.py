@@ -366,7 +366,8 @@ else:
                 globalLabelShoes = label
             #CONFIDENCE LEVEL OF SHOES
             with col2:
-                shoes_accuracy()    
+                confidencePerc()
+                #shoes_accuracy()    
         #PANTS LABEL & ACC
         with st.container():
             col1, col2, col3 = st.columns(3)
@@ -378,7 +379,8 @@ else:
                 #st.write(label)
             #CONFIDENCE LEVEL OF PANTS    
             with col2:
-                pants_accuracy()
+                confidencePerc()
+                #pants_accuracy()
         #SHIRTS LABEL & ACC
         with st.container():
             col1, col2, col3 = st.columns(3)
@@ -389,7 +391,8 @@ else:
                 globalLabelShirts = label
             #CONFIDENCE LEVEL OF SHIRTS
             with col2:
-                shirts_accuracy()
+                confidencePerc()
+                #shirts_accuracy()
 
     #User Input
     with st.container():
