@@ -288,6 +288,7 @@ if smsb == "Single Product":
                 #OUTPUT LABEL OF SHOES
                 with col1:
                     label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+                    globalLabelShoes = label
                     st.write(output_label_shoes[label])
                 #CONFIDENCE LEVEL OF SHOES
                 with col2:
@@ -312,6 +313,7 @@ if smsb == "Single Product":
                 with col1:
                     label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
                     st.write(output_label_pants[label])
+                    globalLabelPants = label
                 #CONFIDENCE LEVEL OF PANTS    
                 with col2:
                     pants_accuracy()  
@@ -335,6 +337,7 @@ if smsb == "Single Product":
                 with col1:
                     label = teachable_machine_classification(image, 'Shirts_keras_model.h5')
                     st.write(output_label_shirts[label])
+                    globalLabelShirts = label
                 #CONFIDENCE LEVEL OF SHIRTS
                 with col2:
                     shirts_accuracy()
