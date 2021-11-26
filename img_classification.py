@@ -2,6 +2,8 @@ import keras
 from PIL import Image, ImageOps
 import numpy as np
 from keras.preprocessing import image
+import streamlit as st
+
 
 
 def teachable_machine_classification(img, weights_file):
