@@ -369,7 +369,7 @@ else:
                 #confidencePerc()
                 #teachable_machine_classification()
                 teachable_machine_classification_confidence = teachable_machine_classification(image, 'Shoes_keras_model.h5')
-                st.write(teachable_machine_classification_confidence.confidence, "%")
+                st.write(confidence, "%")
                 #shoes_accuracy()    
         #PANTS LABEL & ACC
         with st.container():
