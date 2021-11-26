@@ -402,7 +402,7 @@ else:
 
 # def upload(file, **options):
 #     st.write('')
-
+st.write(imPath)
 randomID = random.randint(0, 999999)
 #st.write(randomID)
 
