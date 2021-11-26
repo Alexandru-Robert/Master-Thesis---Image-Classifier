@@ -37,7 +37,7 @@ st.markdown(hide_footer_style, unsafe_allow_html=True)
 
 st.title("Automatic Product Classification")
 st.header("Auto-classification of products based on deep learning methods from product images")
-st.text("This is the solution prototype developed for the Master Thesis - Auto-classification of products based on deep learning methods from product images. Upload a product Image for image classification as different classes")
+st.write("This is the solution prototype developed for the Master Thesis - Auto-classification of products based on deep learning methods from product images. Upload a product Image for image classification as different classes")
 
 uploaded_file = st.file_uploader("Choose a product image ...")#, type="jpeg")
 
