@@ -74,7 +74,7 @@ globalLabelShoes = 0
 
 
 # globalConfidence = 0
-global confidence = 0
+global confidence 
 
 def teachable_machine_classification(img, weights_file):
     # Load the model
