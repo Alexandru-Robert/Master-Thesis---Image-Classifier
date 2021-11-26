@@ -2,7 +2,7 @@ from PIL import Image
 from keras.models import load_model
 import streamlit as st
 from PIL import Image, ImageOps
-#from img_classification import teachable_machine_classification, confidencePerc
+from img_classification import teachable_machine_classification, confidencePerc
 from explore_page import show_explore_page
 import numpy as np
 import cloudinary
@@ -12,8 +12,7 @@ from io import BytesIO, StringIO
 from random import random
 import random
 from collections import Counter
-import keras
-from keras.preprocessing import image
+
 
 st.set_page_config(page_title="MasterThesis", page_icon=None,layout='centered', initial_sidebar_state='auto')
 # favicon being an object of the same kind as the one you should provide st.image() with (ie. a PIL array for example) or a string (url or local file path)
@@ -71,46 +70,6 @@ imageDescription = ''
 globalLabelShirts = 0
 globalLabelPants = 0
 globalLabelShoes = 0
-
-
-# globalConfidence = 0
-global confidence 
-
-def teachable_machine_classification(img, weights_file):
-    # Load the model
-    model = keras.models.load_model(weights_file, compile=False)
-
-    # Create the array of the right shape to feed into the keras model
-    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-    image = img
-    #image sizing
-    size = (224, 224)
-    image = ImageOps.fit(image, size, Image.ANTIALIAS)
-
-    #turn the image into a numpy array
-    image_array = np.asarray(image)
-    # Normalize the image
-    normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
-
-    # Load the image into the array
-    data[0] = normalized_image_array
-
-    # run the inference
-    prediction = model.predict(data)
-    predictionPerc = prediction*100
-    #global confidence 
-    confidence = np.amax(predictionPerc) 
-    # confidencePerc(confidence)
-    #st.write(np.argmax(prediction))
-    return np.argmax(prediction) # return position of the highest probability
-
-#st.write(confidence)
-
-teachable_machine_classification(image, 'Shoes_keras_model.h5')
-
-def confidencePerc():
-    st.write(confidence,"%")
-
 
 def shoes_accuracy():
     shoes_model = load_model('Shoes_keras_model.h5')
