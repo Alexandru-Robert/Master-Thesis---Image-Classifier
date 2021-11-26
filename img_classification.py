@@ -4,7 +4,7 @@ import numpy as np
 from keras.preprocessing import image
 import streamlit as st
 
-
+int globalConfidence
 
 def teachable_machine_classification(img, weights_file):
     # Load the model
@@ -29,9 +29,12 @@ def teachable_machine_classification(img, weights_file):
     prediction = model.predict(data)
     predictionPerc = prediction*100
     confidence = np.amax(predictionPerc) 
+
     confidencePerc(confidence)
     #st.write(np.argmax(prediction))
     return np.argmax(prediction) # return position of the highest probability
 
 def confidencePerc(x):
     st.write(x,"%")
+    globalConfidence = x
+    st.write(globalConfidence)
