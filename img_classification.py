@@ -4,7 +4,7 @@ import numpy as np
 from keras.preprocessing import image
 import streamlit as st
 
-confidence = 0
+#confidence = 0
 
 
 
