@@ -350,7 +350,7 @@ if smsb == "Single Product":
         #User Input
         with st.container():
             col1, col2, col3 = st.columns(3)
-            shoes_user_input(col1)
+            shirts_user_input(col1)
 else:
     if uploaded_file is not None:
         with st.container():
