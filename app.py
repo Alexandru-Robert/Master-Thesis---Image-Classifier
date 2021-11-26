@@ -238,13 +238,13 @@ def pants_user_input(z):
                 image = Image.open(uploaded_file)
                 label = teachable_machine_classification(image, 'Pants_keras_model.h5')
                 labelint = label.item()
+                st.write(label)
                 checker_for_no_img = 1
                 st.header("Pants/Shorts")
                 optionSinglePants = st.selectbox(
                     'Pants/Shorts model in the picture.',
                     ['Unknown','4KRFT', 'Aerostripes 3 slim', 'FiveTen FeelsBlock','Terrex Hike', 'LiteFlex Hiking', 'ZupaHike Hiking', 'Ultimate 365 Tapered','Ultimate 365 Core Shorts'],
                     index= labelint + 1)
-                st.write(optionSinglePants)
                 if optionSinglePants in running:
                     imageTags += ['Running'] #+ optionSinglePants
                     imageTitle += [optionSinglePants]
