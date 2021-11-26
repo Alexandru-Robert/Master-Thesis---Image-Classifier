@@ -66,6 +66,7 @@ imageTags = []
 imPath = []
 imageTitle = []
 imageDescription = ''
+globalLabel = 0
 
 def shoes_accuracy():
     shoes_model = load_model('Shoes_keras_model.h5')
@@ -235,9 +236,9 @@ def pants_user_input(z):
         col1, col2, col3 = st.columns(3)
         with z:
             if uploaded_file is not None:
-                image = Image.open(uploaded_file)
-                label = teachable_machine_classification(image, 'Pants_keras_model.h5')
-                labelint = label.item()
+                # image = Image.open(uploaded_file)
+                # label = teachable_machine_classification(image, 'Pants_keras_model.h5')
+                labelint = globalLabel
                 st.write(label)
                 checker_for_no_img = 1
                 st.header("Pants/Shorts")
@@ -363,6 +364,8 @@ else:
             with col1:
                 label = teachable_machine_classification(image, 'keras_modelPantsv2.h5')
                 st.write(output_label_pants[label])
+
+                globalLabel = label
                 st.write(label)
             #CONFIDENCE LEVEL OF PANTS    
             with col2:
