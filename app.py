@@ -362,14 +362,15 @@ else:
             col1, col2, col3 = st.columns(3)
             #OUTPUT LABEL OF SHOES
             with col1:
-                label = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+                label1 = teachable_machine_classification(image, 'Shoes_keras_model.h5')
+                label = label1[0]
                 st.write(output_label_shoes[label])
                 globalLabelShoes = label
             #CONFIDENCE LEVEL OF SHOES
             with col2:
                 #confidencePerc()
-                #teachable_machine_classification()
-                confidencePerc()
+                teachable_machine_classification()
+                st.write(label[1])
                 #shoes_accuracy()    
         #PANTS LABEL & ACC
         with st.container():
