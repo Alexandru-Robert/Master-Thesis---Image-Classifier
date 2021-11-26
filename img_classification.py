@@ -4,7 +4,7 @@ import numpy as np
 from keras.preprocessing import image
 import streamlit as st
 
-int globalConfidence
+globalConfidence = 0
 
 def teachable_machine_classification(img, weights_file):
     # Load the model
