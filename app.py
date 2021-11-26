@@ -74,7 +74,7 @@ globalLabelShoes = 0
 
 
 # globalConfidence = 0
-confidence = 0
+confidence1 = []
 
 def teachable_machine_classification(img, weights_file):
     # Load the model
@@ -100,7 +100,7 @@ def teachable_machine_classification(img, weights_file):
     predictionPerc = prediction*100
     #global confidence 
     confidence = np.amax(predictionPerc) 
-
+    confidence1 = predictionPerc
     # confidencePerc(confidence)
     #st.write(np.argmax(prediction))
     return np.argmax(prediction) # return position of the highest probability
@@ -108,7 +108,7 @@ def teachable_machine_classification(img, weights_file):
 #st.write(confidence)
 
 def confidencePerc():
-    st.write(confidence,"%")
+    st.write(confidence1,"%")
 
 
 def shoes_accuracy():
