@@ -31,5 +31,5 @@ def teachable_machine_classification(img, weights_file):
     confidence = np.amax(predictionPerc) 
     st.write(confidence,"%")
 
-    return np.argmax(prediction) # return position of the highest probability
+    return np.argmax(prediction) & confidence # return position of the highest probability
 
