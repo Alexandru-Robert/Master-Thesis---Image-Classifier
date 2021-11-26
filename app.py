@@ -384,7 +384,7 @@ else:
         #st.write(imageTitle)        
 
         #st.write(Counter(imageTags))
-        imPath += imageTags
+        # imPath += imageTags
         imageTagsUnique = list(set(imageTags))
         tags = imageTitle+imageTagsUnique
 
@@ -402,8 +402,8 @@ else:
 
 # def upload(file, **options):
 #     st.write('')
-st.write(imageTags[0])
-st.write(imPath)
+# st.write(imageTags[0])
+# st.write(imPath)
 
 randomID = random.randint(0, 999999)
 #st.write(randomID)
@@ -419,7 +419,7 @@ if smsb == "Single Product":
             image.save(buf, 'jpeg')
             image_bytes = buf.getvalue()
         cloudinary.uploader.upload(image_bytes, 
-        folder = "SampleImages/" + imPath +"/", 
+        folder = "SampleImages/" + imageTags[0] +"/", 
         tags = imageTags,
         public_id = imageTitle+str(randomID),
         caption = str(imageTitle)
