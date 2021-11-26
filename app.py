@@ -93,6 +93,7 @@ def shoes_accuracy():
     #labelshoes = normalized_image_array
     prediction = shoes_model.predict(data)*100
     confidence = np.amax(prediction) 
+    
     st.write(confidence,"%")
     # st.dataframe(prediction.round(2))
     #st.write(prediction)
@@ -292,7 +293,8 @@ if smsb == "Single Product":
                     st.write(output_label_shoes[label])
                 #CONFIDENCE LEVEL OF SHOES
                 with col2:
-                    shoes_accuracy()            
+                    confidencePerc()
+                    #shoes_accuracy()            
         #User Input
         with st.container():
             col1, col2, col3 = st.columns(3)
