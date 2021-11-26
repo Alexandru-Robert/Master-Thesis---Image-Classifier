@@ -421,7 +421,7 @@ if smsb == "Single Product":
         cloudinary.uploader.upload(image_bytes, 
         folder = "SampleImages/" + imageTags[0] +"/", 
         tags = imageTags,
-        public_id = imageTitle+str(randomID),
+        public_id = imageTitle[0]+str(randomID),
         caption = str(imageTitle)
         #overwrite = true, 
         #notification_url = "https://mysite.example.com/notify_endpoint", 
