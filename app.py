@@ -61,6 +61,7 @@ outdoor = ['Terrex Swift', 'Terrex Voyajer 21 Travel', 'Terrex Free Hiker Prime 
 golf = ['ZG21','Adicross Retro','Adic XZ Prime Blue','Ultimate 365 Tapered','Ultimate 365 Core Shorts','Adicross Evolution', 'GoToPolo', 'GoToPrimeGreenPique', 'Performance PrimeGreen']
 
 imageTags = []
+imPath = []
 imageTitle = []
 imageDescription = ''
 
